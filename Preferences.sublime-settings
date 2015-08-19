@@ -16,4 +16,7 @@
     "pep8_ignore": [
         "E501"
     ],
+
+    "theme": "Afterglow.sublime-theme"
+
 }

@@ -13,13 +13,18 @@ brew cask install firefoxdeveloperedition
 brew cask install iterm2
 brew cask install sublime-text3
 brew cask install google-chrome
+brew cask install dropbox
+brew cask install spotify
 
 # install libraries
 brew install tmux
+sudo easy_install pip
+sudo pip install cdiff
 
 # link config files
 ln -s .tmux.conf ~/.tmux.conf
 ln -s .bash_profile ~/.bash_profile
+ln -s .gitconfig ~/.gitconfig
 
 # create ssh keys
 ssh-keygen -t rsa -b 4096 -C "kashif610@gmail.com"
