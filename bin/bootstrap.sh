@@ -22,9 +22,9 @@ sudo easy_install pip
 sudo pip install cdiff
 
 # link config files
-ln -s .tmux.conf ~/.tmux.conf
-ln -s .bash_profile ~/.bash_profile
-ln -s .gitconfig ~/.gitconfig
+ln -s etc/.tmux.conf ~/.tmux.conf
+ln -s etc/.bash_profile ~/.bash_profile
+ln -s etc/.gitconfig ~/.gitconfig
 
 # create ssh keys
 ssh-keygen -t rsa -b 4096 -C "kashif610@gmail.com"
