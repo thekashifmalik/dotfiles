@@ -20,6 +20,7 @@ brew cask install spotify
 brew install tmux
 sudo easy_install pip
 sudo pip install cdiff
+brew install httpie
 
 # link config files
 ln -s etc/.tmux.conf ~/.tmux.conf
