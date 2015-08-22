@@ -15,12 +15,15 @@ brew cask install sublime-text3
 brew cask install google-chrome
 brew cask install dropbox
 brew cask install spotify
+brew cask install viscosity
 
 # install libraries
 brew install tmux
+brew install httpie
 sudo easy_install pip
 sudo pip install cdiff
-brew install httpie
+sudo pip install virtualenv
+sudo pip install debug
 
 # link config files
 ln -s etc/.tmux.conf ~/.tmux.conf
