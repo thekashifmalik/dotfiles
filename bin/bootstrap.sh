@@ -16,10 +16,15 @@ brew cask install google-chrome
 brew cask install dropbox
 brew cask install spotify
 brew cask install viscosity
+brew cask install dockertoolbox
 
 # install libraries
 brew install tmux
 brew install httpie
+brew install htop
+brew install postgresql
+brew install redis
+brew install geoip geoipupdate
 sudo easy_install pip
 sudo pip install cdiff
 sudo pip install virtualenv
