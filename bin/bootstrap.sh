@@ -17,4 +17,4 @@ apt-get install -y \
 # Copy config files.
 rm -f ~/.profile && cp etc/.profile ~/.profile
 rm -f ~/.tmux.conf && cp etc/.tmux.conf ~/.tmux.conf
-rm -f ~/.gitconfig && cp etc/.profile ~/.gitconfig
+rm -f ~/.gitconfig && cp etc/.gitconfig ~/.gitconfig
