@@ -15,6 +15,6 @@ apt-get install -y \
     httpie \
 
 # Copy config files.
-rm -f ~/.profile && cp etc/.profile ~/.profile
+rm -f ~/.bashrc && cp etc/.bashrc ~/.bashrc
 rm -f ~/.tmux.conf && cp etc/.tmux.conf ~/.tmux.conf
 rm -f ~/.gitconfig && cp etc/.gitconfig ~/.gitconfig
