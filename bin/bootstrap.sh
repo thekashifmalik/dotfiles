@@ -7,7 +7,7 @@ apt-get update
 apt-get install -y \
     aptitude \
     build-essential \
-    hg \
+    mercurial \
     htop \
     tmux \
     python \
