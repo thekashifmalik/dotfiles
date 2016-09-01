@@ -15,7 +15,8 @@ brew cask install \
     viscosity \
     google-hangouts \
     datagrip \
-    java6
+    java6 \
+    slack
 
 # install libraries
 brew install \
