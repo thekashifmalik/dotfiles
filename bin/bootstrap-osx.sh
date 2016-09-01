@@ -1,46 +1,47 @@
 #!/bin/sh
 
-# install developer tools
-xcode-select --install
-
-# install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# install cask for binaries
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 brew tap homebrew/boneyard
 
 # install binaries
-brew cask install firefoxdeveloperedition
-brew cask install iterm2
-brew cask install sublime-text3
-brew cask install google-chrome
-brew cask install dropbox
-brew cask install spotify
-brew cask install viscosity
-brew cask install dockertoolbox
-brew cask install google-hangouts
-brew cask install 0xdbe-eap
-brew cask install java6
+brew cask install \
+    firefoxdeveloperedition \
+    iterm2 \
+    sublime-text3 \
+    google-chrome \
+    dropbox \
+    spotify \
+    viscosity \
+    dockertoolbox \
+    google-hangouts \
+    0xdbe-eap \
+    java6
 
 # install libraries
-brew install tmux
-brew install httpie
-brew install htop
-brew install postgresql
-brew install redis
-brew install geoip geoipupdate
-brew install s3cmd
-brew install hg
-brew install npm
+brew install \
+    tmux \
+    httpie \
+    htop \
+    postgresql \
+    redis \
+    geoip \
+    geoipupdate \
+    s3cmd \
+    hg \
+    npm
+
 sudo easy_install pip
-sudo pip install cdiff
-sudo pip install virtualenv
-sudo pip install debug
+sudo pip install \
+    cdiff \
+    virtualenv \
+    debug
 
 # link config files
-ln -s etc/.tmux.conf ~/.tmux.conf
-ln -s etc/.bash_profile ~/.bash_profile
-ln -s etc/.gitconfig ~/.gitconfig
+ln -s ${PWD}/etc/.tmux.conf ~/.tmux.conf
+ln -s ${PWD}/etc/.bash_profile ~/.bash_profile
+ln -s ${PWD}/etc/.gitconfig ~/.gitconfig
 
 # create ssh keys
 ssh-keygen -t rsa -b 4096 -C "kashif610@gmail.com"
