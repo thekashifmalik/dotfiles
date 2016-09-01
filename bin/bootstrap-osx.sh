@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # install cask for binaries
-brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 brew tap homebrew/boneyard
 
@@ -9,18 +8,18 @@ brew tap homebrew/boneyard
 brew cask install \
     firefoxdeveloperedition \
     iterm2 \
-    sublime-text3 \
+    sublime-text \
     google-chrome \
     dropbox \
     spotify \
     viscosity \
-    dockertoolbox \
     google-hangouts \
-    0xdbe-eap \
+    datagrip \
     java6
 
 # install libraries
 brew install \
+    python \
     tmux \
     httpie \
     htop \
@@ -32,14 +31,15 @@ brew install \
     hg \
     npm
 
-pip install --user \
+pip install \
     cdiff \
     virtualenv \
     debug
 
 # link config files
-ln -s ${PWD}/etc/.tmux.conf ~/.tmux.conf
-ln -s ${PWD}/etc/.gitconfig ~/.gitconfig
+ln -sf ${PWD}/etc/.bash_profile ~/.bash_profile
+ln -sf ${PWD}/etc/.tmux.conf ~/.tmux.conf
+ln -sf ${PWD}/etc/.gitconfig ~/.gitconfig
 
 # create ssh keys
 ssh-keygen -t rsa -b 4096 -C "kashif610@gmail.com"
