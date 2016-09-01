@@ -32,15 +32,13 @@ brew install \
     hg \
     npm
 
-sudo easy_install pip
-sudo pip install \
+pip install --user \
     cdiff \
     virtualenv \
     debug
 
 # link config files
 ln -s ${PWD}/etc/.tmux.conf ~/.tmux.conf
-ln -s ${PWD}/etc/.bash_profile ~/.bash_profile
 ln -s ${PWD}/etc/.gitconfig ~/.gitconfig
 
 # create ssh keys
