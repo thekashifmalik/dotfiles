@@ -3,6 +3,7 @@
 # install cask for binaries
 brew tap caskroom/versions
 brew tap homebrew/boneyard
+brew tap homebrew/versions
 
 # install binaries
 brew cask install \
@@ -24,8 +25,10 @@ brew install \
     tmux \
     httpie \
     htop \
-    postgresql \
+    libmemcached \
+    memcached \
     redis \
+    postgresql \
     geoip \
     geoipupdate \
     s3cmd \
@@ -41,8 +44,4 @@ pip install \
 ln -sf ${PWD}/etc/.bash_profile ~/.bash_profile
 ln -sf ${PWD}/etc/.tmux.conf ~/.tmux.conf
 ln -sf ${PWD}/etc/.gitconfig ~/.gitconfig
-
-# create ssh keys
-ssh-keygen -t rsa -b 4096 -C "kashif610@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+ln -sf ${PWD}/etc/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
