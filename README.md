@@ -4,11 +4,13 @@ dotfiles
 OSX
 ---
 
-Install OSX command line developer tools, homebrew and pip:
+Install the prerequisites:
 
+    # OSX command line developer tools
     xcode-select --install
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    sudo easy_install pip
+
+    # homebrew
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Clone the repository and run the bootstrap script:
 

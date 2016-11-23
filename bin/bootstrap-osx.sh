@@ -17,7 +17,8 @@ brew cask install \
     google-hangouts \
     datagrip \
     java6 \
-    slack
+    slack \
+    shiftit
 
 # install libraries
 brew install \
@@ -33,8 +34,9 @@ brew install \
     geoipupdate \
     s3cmd \
     hg \
-    npm
+    node4-lts
 
+# install python packages
 pip install \
     cdiff \
     virtualenv \
@@ -42,6 +44,7 @@ pip install \
 
 # link config files
 ln -sf ${PWD}/etc/.bash_profile ~/.bash_profile
+ln -sf ${PWD}/etc/.bashrc ~/.bashrc
 ln -sf ${PWD}/etc/.tmux.conf ~/.tmux.conf
 ln -sf ${PWD}/etc/.gitconfig ~/.gitconfig
 ln -sf ${PWD}/etc/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
