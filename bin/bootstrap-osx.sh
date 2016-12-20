@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+set -eo pipefail
 
 # install cask for binaries
 brew tap caskroom/versions
@@ -7,10 +8,9 @@ brew tap homebrew/versions
 
 # install binaries
 brew cask install \
-    firefoxdeveloperedition \
+    google-chrome \
     iterm2 \
     sublime-text \
-    google-chrome \
     dropbox \
     spotify \
     viscosity \
@@ -18,7 +18,9 @@ brew cask install \
     datagrip \
     java6 \
     slack \
-    shiftit
+    shiftit \
+    1password \
+    steam
 
 # install libraries
 brew install \
@@ -34,11 +36,11 @@ brew install \
     geoipupdate \
     s3cmd \
     hg \
-    node4-lts
+    node4-lts \
+    cdiff
 
 # install python packages
 pip install \
-    cdiff \
     virtualenv \
     debug
 
