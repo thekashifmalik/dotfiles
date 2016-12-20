@@ -1,5 +1,6 @@
 dotfiles
 ========
+Setup scripts for a dev environment.
 
 OSX
 ---
