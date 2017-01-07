@@ -20,7 +20,9 @@ brew cask install \
     slack \
     shiftit \
     1password \
-    steam
+    steam \
+    java \
+    android-studio
 
 # install libraries
 brew install \
@@ -37,7 +39,9 @@ brew install \
     s3cmd \
     hg \
     node4-lts \
-    cdiff
+    cdiff \
+    watchman \
+    watch
 
 # install python packages
 pip install \

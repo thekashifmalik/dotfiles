@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eo pipefail
+
+: "${HOSTNAME?Need to set HOSTNAME}"
+
+# Create SSH key
+ssh-keygen -t rsa -b 4096 -C "$HOSTNAME"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
