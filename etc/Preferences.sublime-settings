@@ -1,9 +1,20 @@
 {
+	"SublimeLinter":
+	{
+		"linters":
+		{
+			"flake8":
+			{
+				"ignore": "E501",
+				"show-code": true
+			}
+		}
+	},
 	"anaconda_linting": true,
 	"anaconda_linting_behaviour": "always",
 	"auto_complete_commit_on_tab": true,
 	"bold_folder_labels": false,
-	"color_scheme": "Packages/User/SublimeLinter/Monokai Extended Origin (SL).tmTheme",
+	"color_scheme": "Packages/User/Monokai Extended Origin (SL) (Flake8Lint).tmTheme",
 	"copy_with_empty_selection": false,
 	"ensure_newline_at_eof_on_save": true,
 	"font_size": 12,

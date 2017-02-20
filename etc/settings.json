@@ -1,0 +1,30 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "editor.acceptSuggestionOnEnter": true,
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true
+    },
+
+    "editor.renderWhitespace": "all",
+    "editor.renderLineHighlight": "gutter",
+
+    "editor.rulers": [
+        120
+    ],
+
+    "vsicons.presets.angular": false,
+
+    "python.pythonPath": "python3",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+
+    "python.linting.flake8Args": [
+        "--ignore=E501"
+    ],
+    "window.zoomLevel": 0
+}
