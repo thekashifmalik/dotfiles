@@ -34,7 +34,7 @@ export GITAWAREPROMPT=~/dotfiles/vendor/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
 # Fancy prompt with git status.
-export PS1="${bldgrn}\u@\h ${bldblu}\w ${txtylw}\${git_branch}${txtred}\${git_dirty}${txtrst} \$ "
+export PS1="\[${bldgrn}\]\u@\h\[${txtrst}\] \[${bldblu}\]\w\[${txtrst}\] \[${bldylw}\]\${git_branch}\[${txtrst}\]\[${txtred}\]\${git_dirty}\[${txtrst}\] \$ "
 
 
 export TERM=xterm-256color
