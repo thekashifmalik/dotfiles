@@ -34,8 +34,13 @@ export GITAWAREPROMPT=~/dotfiles/vendor/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
 # Fancy prompt with git status.
-export PS1="\[${bldgrn}\]\u@\h\[${txtrst}\] \[${bldblu}\]\w\[${txtrst}\] \[${bldylw}\]\${git_branch}\[${txtrst}\]\[${txtred}\]\${git_dirty}\[${txtrst}\] \$ "
+export PS1="\[${bldgrn}\]\u@\h\[${txtrst}\] \[${bldblu}\]\w\[${txtrst}\] \[${bldylw}\]\${git_branch}\[${txtrst}\] \[${txtred}\]\${git_dirty}\[${txtrst}\]\n\[${txtpur}\]\$\[${txtrst}\] "
 
 
 export TERM=xterm-256color
 export EDITOR=nvim
+if [ -e /Users/kashif/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/kashif/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+
+# Add rust toolchain to path
+export PATH="$HOME/.cargo/bin:$PATH"
