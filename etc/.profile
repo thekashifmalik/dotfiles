@@ -71,3 +71,6 @@ export PATH="$GOPATH/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+# FZF completions.
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

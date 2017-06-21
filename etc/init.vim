@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'sickill/vim-monokai'
@@ -9,11 +9,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
-Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vim-syntastic/syntastic'
 call plug#end()
-
-set rtp+=/usr/local/opt/fzf
 
 set number " show line numbers
 set relativenumber " make lines numbers relative
@@ -55,20 +52,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-map <leader>r :source ~/.config/nvim/init.vim<cr>
-map <leader>e :vsp ~/.config/nvim/init.vim<cr>
-map <leader>t :NERDTree<cr>
-map <leader>tt :NERDTreeFind<cr>
-map <leader>T :TagbarToggle<cr>
-map <leader>u :GundoToggle<cr>
-map <leader>p :PlugInstall<cr>
-map <leader>f :FZF<cr>
-map <leader>F :Ack<space>''<left>
-map <leader>c :Commits<cr>
-map <leader>ga :Gwrite<cr>
-map <leader>gr :Gread<cr>
-map <leader>gc :Gcommit<cr>
-nnoremap <leader>b :CtrlSpace O<CR>
+map <C-r> :source ~/.config/nvim/init.vim<cr>
+map <C-e> :vsp ~/.config/nvim/init.vim<cr>
+map <C-i> :PlugInstall<cr>
+map <C-b> :NERDTree<cr>
+map <C-t> :NERDTreeFind<cr>
+map <C-t>t :TagbarToggle<cr>
+map <C-p> :FZF<cr>
+map <C-f> :Ack<space>''<left>
 
 
 " move to beginning/end of line
