@@ -28,15 +28,16 @@ txtrst="$(tput sgr 0 2>/dev/null || echo '\e[0m')"  # Text Reset
 # Fancy prompt.
 prompt_cmd () {
     PS1="\n"
-    PS1+="\[${txtcyn}\]\D{%Y-%m-%dT%H-%M-%S}\[${txtrst}\]: " # Time
-    PS1+="\[${txtrst}\]//\[${txtgrn}\]\u " # Username
-    PS1+="\[${txtrst}\]@\[${txtylw}\]\h " # Hostname
-    PS1+="\[${txtrst}\]/\[${txtblu}\]\w " # Path
-    PS1+="\[${txtrst}\]? "
+    PS1+="\[${txtcyn}\]\D{%Y-%m-%dT%H-%M-%S}" # Time
+    PS1+="\[${txtrst}\]://\[${txtgrn}\]\u" # Username
+    PS1+="\[${txtrst}\]@\[${txtylw}\]\h" # Hostname
+    PS1+="\[${txtrst}\]/\[${txtblu}\]\w" # Path
+
+    PS1+="\[${txtrst}\]?\[${txtred}\]pid\[${txtrst}\]=\[${txtpur}\]$$"
 
     # Virtualenv
     if ! [[ -z "$VIRTUAL_ENV" ]]; then
-        PS1+="\[${txtred}\]venv\[${txtrst}\]=\[${txtpur}\]$VIRTUAL_ENV "
+        PS1+="\[${txtrst}\]&\[${txtred}\]venv\[${txtrst}\]=\[${txtpur}\]$VIRTUAL_ENV"
     fi
 
     # Git
@@ -48,7 +49,7 @@ prompt_cmd () {
         else
             git_dirty=''
         fi
-        PS1+="\[${txtred}\]git\[${txtrst}\]=\[${txtpur}\]$branch$git_dirty"
+        PS1+="\[${txtrst}\]&\[${txtred}\]git\[${txtrst}\]=\[${txtpur}\]$branch$git_dirty"
     fi
 
     # Prompt.
