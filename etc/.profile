@@ -58,7 +58,7 @@ prompt_cmd () {
 export PROMPT_COMMAND='prompt_cmd'
 
 export TERM=xterm-256color
-export EDITOR=vim
+export EDITOR=nvim
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
