@@ -52,8 +52,8 @@ pip install \
     debug
 
 # link config files
-ln -sf ${PWD}/etc/.bash_profile ~/.bash_profile
-ln -sf ${PWD}/etc/.bashrc ~/.bashrc
+ln -sf ${PWD}/etc/.profile ~/.profile
+ln -sf ${PWD}/etc/.bash_aliases ~/.bash_aliases
 ln -sf ${PWD}/etc/.tmux.conf ~/.tmux.conf
 ln -sf ${PWD}/etc/.gitconfig ~/.gitconfig
 ln -sf ${PWD}/etc/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings

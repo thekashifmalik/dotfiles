@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eo pipefail
+
+echo "linking .profile"
+ln -sf ${PWD}/etc/.profile ~/.profile
+
+echo "linking .bash_aliases"
+ln -sf ${PWD}/etc/.bash_aliases ~/.bash_aliases
+
+source ~/.profile
+source ~/.bash_aliases

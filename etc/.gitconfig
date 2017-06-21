@@ -1,10 +1,13 @@
 [user]
-    name = kalail
-    email = kashif610@gmail.com
+    name = thekashifmalik
+    email = emailkashifmalik@gmail.com
 
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
     co = checkout
+    st = status
+    a = add
+    cm = commit
 
 [push]
     default = simple
