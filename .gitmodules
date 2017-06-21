@@ -1,6 +1,0 @@
-[submodule "vendor/git-aware-prompt"]
-	path = vendor/git-aware-prompt
-	url = git@github.com:jimeh/git-aware-prompt.git
-[submodule "vendor/molokai"]
-	path = vendor/molokai
-	url = git@github.com:tomasr/molokai.git
