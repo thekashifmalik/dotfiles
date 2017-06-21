@@ -17,6 +17,7 @@ fi
 # Linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
     echo "detected Linux"
+    sudo apt-get update
     sudo apt-get install tmux
 fi
 
