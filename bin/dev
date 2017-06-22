@@ -42,12 +42,14 @@ ln -sf ${PWD}/etc/.tmux.conf ~/.tmux.conf
 echo "linking .gitconfig"
 ln -sf ${PWD}/etc/.gitconfig ~/.gitconfig
 
-echo "installing fzf"
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+if [ ! -d ~/.fzf ]; then
+    echo "installing fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
 
-echo "installing rust"
-curl https://sh.rustup.rs -sSf | sh
+# echo "installing rust"
+# curl https://sh.rustup.rs -sSf | sh
 # TODO: Figure out why this won't build.
 # cargo install ripgrep
 
