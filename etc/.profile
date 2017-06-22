@@ -61,8 +61,6 @@ export PROMPT_COMMAND='prompt_cmd'
 export TERM=xterm-256color
 export EDITOR=nvim
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Add rust toolchain to path
 export PATH="$HOME/.cargo/bin:$PATH"
 

@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
 
 set number " show line numbers
@@ -55,12 +56,25 @@ set statusline+=%*
 map <C-r> :source ~/.config/nvim/init.vim<cr>
 map <C-e> :vsp ~/.config/nvim/init.vim<cr>
 map <C-i> :PlugInstall<cr>
-map <C-b> :NERDTree<cr>
-map <C-t> :NERDTreeFind<cr>
-map <C-t>t :TagbarToggle<cr>
+map <C-t> :NERDTree<cr>
+map <C-b> :NERDTreeFind<cr>
 map <C-p> :FZF<cr>
 map <C-f> :Ack<space>''<left>
 
+
+" Window
+map J <C-w>w
+map K <C-w>W
+map <C-w>n :vnew<CR>
+map <C-w>N :new<CR>
+
+" Buffer
+map <C-j> :BuffergatorMruCyclePrev<cr>
+map <C-k> :BuffergatorMruCycleNext<cr>
+map <C-b> :BuffergatorOpen<cr>
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+map <C-q> :bp <BAR> bd #<CR>
 
 " move to beginning/end of line
 map B ^
@@ -68,6 +82,7 @@ map E $
 
 let mapleader = "," " leader is comma
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_show_hidden = 1
 let g:ackprg = 'rg --vimgrep --no-heading'
 
