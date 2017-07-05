@@ -27,20 +27,40 @@ txtrst="$(tput sgr 0 2>/dev/null || echo '\e[0m')"  # Text Reset
 
 # Fancy prompt.
 prompt_cmd () {
+    # Prompt format.
+    # TIME://USERNAME@HOSTNAME/PATH?KEY=VALUE
+
+    # We start witha newline
     PS1="\n"
-    PS1+="\[${txtcyn}\]\D{%Y-%m-%dT%H-%M-%S}" # Time
-    PS1+="\[${txtrst}\]://\[${txtgrn}\]\u" # Username
-    PS1+="\[${txtrst}\]@\[${txtylw}\]\h" # Hostname
-    PS1+="\[${txtrst}\]/\[${txtred}\]\w" # Path
+    PS1+="\[${txtcyn}\]\D{%Y-%m-%dT%H-%M-%S}"
+    PS1+="\[${txtrst}\]://"
+    PS1+="\[${txtgrn}\]\u"
+    PS1+="\[${txtrst}\]@"
+    PS1+="\[${txtylw}\]\h"
+    PS1+="\[${txtrst}\]/"
+    PS1+="\[${txtred}\]\w"
 
-    PS1+="\[${txtrst}\]?\[${txtblu}\]pid\[${txtrst}\]=\[${txtpur}\]$$"
+    PS1+="\[${txtrst}\]?"
+    PS1+="\[${txtblu}\]pid"
+    PS1+="\[${txtrst}\]="
+    PS1+="\[${txtpur}\]$$"
 
-    # Virtualenv
-    if ! [[ -z "$VIRTUAL_ENV" ]]; then
-        PS1+="\[${txtrst}\]&\[${txtblu}\]venv\[${txtrst}\]=\[${txtpur}\]$VIRTUAL_ENV"
+    if [ "$(type -t deactivate)" = 'function' ]; then
+        deactivate
     fi
 
-    # Git
+    if [ -d "venv" ]; then
+        VIRTUAL_ENV_DISABLE_PROMPT=1
+        source venv/bin/activate
+    fi
+
+    if ! [[ -z "$VIRTUAL_ENV" ]]; then
+        PS1+="\[${txtrst}\]&"
+        PS1+="\[${txtblu}\]venv"
+        PS1+="\[${txtrst}\]="
+        PS1+="\[${txtpur}\]$VIRTUAL_ENV"
+    fi
+
     local branch
     if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
         local status=$(git status --porcelain 2> /dev/null)
@@ -49,7 +69,10 @@ prompt_cmd () {
         else
             git_dirty=''
         fi
-        PS1+="\[${txtrst}\]&\[${txtblu}\]git\[${txtrst}\]=\[${txtpur}\]$branch$git_dirty"
+        PS1+="\[${txtrst}\]&"
+        PS1+="\[${txtblu}\]git"
+        PS1+="\[${txtrst}\]="
+        PS1+="\[${txtpur}\]$branch$git_dirty"
     fi
 
     # Prompt.
