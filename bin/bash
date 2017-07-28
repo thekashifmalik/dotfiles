@@ -1,11 +1,11 @@
 #!/bin/bash
 set -eo pipefail
 
-echo "linking .profile"
-ln -sf ${PWD}/etc/.profile ~/.profile
+echo
+echo "linking bash config"
+ln -fsv $PWD/etc/.bashrc ~/.bashrc
+ln -fsv $PWD/etc/.bash_profile ~/.bash_profile
+ln -sfv $PWD/etc/.bash_aliases ~/.bash_aliases
 
-echo "linking .bash_aliases"
-ln -sf ${PWD}/etc/.bash_aliases ~/.bash_aliases
-
-echo "source .profile to update environment"
-
+echo
+echo "source .bashrc to update environment"

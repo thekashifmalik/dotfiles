@@ -1,4 +1,3 @@
-
 echo 'reading .bash_aliases'
 
 # Python virtualenv management helpers.

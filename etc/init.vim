@@ -5,11 +5,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'sickill/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'sjl/gundo.vim'
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
 
@@ -53,40 +53,46 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-map <C-r> :source ~/.config/nvim/init.vim<cr>
-map <C-e> :vsp ~/.config/nvim/init.vim<cr>
 map <C-i> :PlugInstall<cr>
-map <C-t> :NERDTree<cr>
-map <C-b> :NERDTreeFind<cr>
+map <C-e> :NERDTreeToggle<cr>
 map <C-p> :FZF<cr>
 map <C-f> :Ack<space>''<left>
 
+set mouse=a " enable mouse support
 
-" Window
-map J <C-w>w
-map K <C-w>W
-map <C-w>n :vnew<CR>
-map <C-w>N :new<CR>
+" Settings
+map , :vsp ~/.config/nvim/init.vim<cr>
+map <C-r> :source ~/.config/nvim/init.vim<cr>
+
+" File
+map <C-s> :w<CR>
+
+" Windows / Buffers
+map <C-j> :wincmd<space>w<CR>
+map <C-h> :wincmd<space>W<CR>
+map <C-k> :BuffergatorMruCycleNext<CR>
+map <C-n> :vsplit<CR>
+"unmap <C-w>w
+map <C-w> :bp <BAR> bd #<CR>
+map <C-q> :q<CR>
+"map <C-d> :new<CR>
+"map <C-b> :BuffergatorOpen<cr>
+"map K <C-w>W
 
 " Buffer
-map <C-j> :BuffergatorMruCyclePrev<cr>
-map <C-k> :BuffergatorMruCycleNext<cr>
-map <C-b> :BuffergatorOpen<cr>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
-map <C-q> :bp <BAR> bd #<CR>
 
 " move to beginning/end of line
 map B ^
 map E $
 
-let mapleader = "," " leader is comma
+" let mapleader = "," " leader is comma
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:ctrlp_show_hidden = 1
 let g:ackprg = 'rg --vimgrep --no-heading'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0

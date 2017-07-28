@@ -4,55 +4,45 @@ set -eo pipefail
 # Dependencies.
 bin/bash
 
-echo "installing packages"
+echo
+echo "installing core packages"
 
 # MacOS
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     echo "detected MacOS"
     brew update
-    brew upgrade
     brew install \
         tmux \
-        neovim/neovim/neovim
+        neovim
 fi
 
 # Linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
     echo "detected Linux"
     sudo apt-get update
-    sudo apt-get install -y \
-        software-properties-common \
-        tmux
-    sudo add-apt-repository -y \
-        ppa:neovim-ppa/stable
+    sudo apt-get install -y software-properties-common
+    sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt-get update
     sudo apt-get install -y \
-        neovim \
-        python-dev \
-        python-pip \
-        python3-dev \
-        python3-pip
-
+        tmux \
+        neovim
 fi
 
-
-echo "linking .tmux.conf"
-ln -sf ${PWD}/etc/.tmux.conf ~/.tmux.conf
-
-echo "linking .gitconfig"
-ln -sf ${PWD}/etc/.gitconfig ~/.gitconfig
-
 if [ ! -d ~/.fzf ]; then
-    echo "installing fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
 
-# echo "installing rust"
-# curl https://sh.rustup.rs -sSf | sh
-# TODO: Figure out why this won't build.
-# cargo install ripgrep
 
-echo "linking nvim config"
-mkdir -p ~/.config/nvim && ln -sf ${PWD}/etc/init.vim ~/.config/nvim/init.vim
+echo
+echo "linking config files"
+ln -fsv $PWD/etc/.tmux.conf ~/.tmux.conf
+ln -fsv $PWD/etc/.gitconfig ~/.gitconfig
+
+
+echo
+echo "setting up neovim"
+mkdir -p ~/.config/nvim && ln -fsv $PWD/etc/init.vim ~/.config/nvim/init.vim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
