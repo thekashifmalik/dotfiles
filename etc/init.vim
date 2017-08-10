@@ -8,6 +8,7 @@ Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
@@ -31,6 +32,8 @@ set cursorline
 let g:airline_powerline_fonts = 1
 " enable tab line
 let g:airline#extensions#tabline#enabled = 1
+" make space in the command bar for more info
+set cmdheight=2
 
 " TABS / SPACES
 " tabs are spaces
@@ -99,19 +102,16 @@ set noswapfile
 
 " WINDOWS / BUFFERS
 " next window
-map <c-j> :wincmd<space>w<cr>
-" previous window
 map <c-h> :wincmd<space>W<cr>
-" new window horizontal
-map <c-n> :new<cr>
-" new window vertical
-map <C-m> :vertical new<cr>
+" new window
+map <c-n> :vertical<space>new<cr>
 " close window
-map <C-q> :q<CR>
+map <c-q> :q<cr>
 " next buffer
-map <c-k> :BuffergatorMruCycleNext<cr>
+map <c-j> :BuffergatorMruCycleNext<cr>
 " list buffers
-map <C-b> :BuffergatorOpen<cr>
+map <c-b> :BuffergatorOpen<cr>
 " close buffer
-map <C-w> :bp <BAR> bd #<CR>
-
+map <c-w> :bp <bar> bd #<cr>
+" let buffers be hidden
+set hidden
