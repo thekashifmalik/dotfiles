@@ -119,7 +119,7 @@ prompt_cmd () {
 
     # Prompt.
     PS1+="\[${txtrst}\]\n"
-    PS1+="\[${txtcyn}\]\$\[${txtrst}\] "
+    PS1+="\[${txtcyn}\]>\[${txtrst}\] "
 }
 export PROMPT_COMMAND='prompt_cmd'
 
