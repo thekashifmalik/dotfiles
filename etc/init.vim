@@ -11,12 +11,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'vim-syntastic/syntastic'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
+Plug 'w0rp/ale'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
@@ -46,11 +46,6 @@ set cmdheight=2
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 " show folder open glyph
 let g:DevIconsEnableFoldersOpenClose = 1
-" syntastic defaults
-let g:syntastic_mode_map = {
-    \ "mode": "passive",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": [] }
 " shortcut to preview markdown
 let vim_markdown_preview_hotkey='<C-m>'
 " use chrome for markdown preview
@@ -128,8 +123,6 @@ map U :redo<cr>
 map <c-s> :w<cr>
 " disable swapfiles
 set noswapfile
-" check code
-map <c-c> :SyntasticCheck<cr>
 " use system clipboard
 set clipboard=unnamed
 
