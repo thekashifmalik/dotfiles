@@ -25,3 +25,5 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# human readable output sizes
+alias du='du -h'
