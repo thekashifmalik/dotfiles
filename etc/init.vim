@@ -9,6 +9,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'vim-syntastic/syntastic'
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
@@ -34,6 +42,21 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " make space in the command bar for more info
 set cmdheight=2
+" show folder glyphs
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" show folder open glyph
+let g:DevIconsEnableFoldersOpenClose = 1
+" syntastic defaults
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": [] }
+" shortcut to preview markdown
+let vim_markdown_preview_hotkey='<C-m>'
+" use chrome for markdown preview
+let vim_markdown_preview_browser='Google Chrome'
+" Use etf-8 encoding by default
+set encoding=utf8
 
 " TABS / SPACES
 " tabs are spaces
@@ -44,6 +67,12 @@ set tabstop=4
 set softtabstop=4
 " number of spaces to use for each indent
 set shiftwidth=4
+" use shift-tab to unindent
+nnoremap <s-tab> <<
+inoremap <s-tab> <c-d>
+" display newlines
+set listchars=tab:▸\ ,eol:¬
+set list
 
 " NAVIGATION
 " enable mouse support
@@ -99,6 +128,10 @@ map U :redo<cr>
 map <c-s> :w<cr>
 " disable swapfiles
 set noswapfile
+" check code
+map <c-c> :SyntasticCheck<cr>
+" use system clipboard
+set clipboard=unnamed
 
 " WINDOWS / BUFFERS
 " next window
@@ -115,3 +148,14 @@ map <c-b> :BuffergatorOpen<cr>
 map <c-w> :bp <bar> bd #<cr>
 " let buffers be hidden
 set hidden
+" split new window at bottom
+set splitbelow
+
+" jedi config
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = '<c-g>'
+let g:jedi#documentation_command = '<c-d>'
+let g:jedi#auto_close_doc = 1
+
+" AUTOCOMPLETE
+let g:deoplete#enable_at_startup = 1
