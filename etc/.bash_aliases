@@ -27,3 +27,8 @@ alias l='ls -CF'
 
 # human readable output sizes
 alias du='du -h'
+alias df='df -h'
+
+# Use Python 3.
+alias pip='pip3'
+alias python='python3'
