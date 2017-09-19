@@ -137,7 +137,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # FZF completions.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # Bash completions.
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
