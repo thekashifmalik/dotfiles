@@ -38,3 +38,6 @@ alias python='python3'
 
 # Colorize less output.
 alias less='less -r'
+
+# Colorize jq output.
+alias jq='jq -C'
