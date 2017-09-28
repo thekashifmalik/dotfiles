@@ -17,6 +17,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'w0rp/ale'
+Plug 'vim-python/python-syntax'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
@@ -152,3 +153,7 @@ let g:jedi#auto_close_doc = 1
 
 " AUTOCOMPLETE
 let g:deoplete#enable_at_startup = 1
+
+" python-syntax
+let g:python_highlight_all = 1
+let g:pymode_python = 'python3'
