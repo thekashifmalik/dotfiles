@@ -18,6 +18,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'w0rp/ale'
 Plug 'vim-python/python-syntax'
+Plug 'autowitch/hive.vim'
+Plug 'rodjek/vim-puppet'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
@@ -137,7 +139,7 @@ map <c-q> :q<cr>
 " next buffer
 map <c-j> :BuffergatorMruCycleNext<cr>
 " list buffers
-map <c-b> :BuffergatorOpen<cr>
+map <c-b> :BuffergatorToggle<cr>
 " close buffer
 map <c-w> :bp <bar> bd #<cr>
 " let buffers be hidden
@@ -157,3 +159,14 @@ let g:deoplete#enable_at_startup = 1
 " python-syntax
 let g:python_highlight_all = 1
 let g:pymode_python = 'python3'
+
+" javascript
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+" for .hql files
+au BufNewFile,BufRead *.hql set filetype=hive expandtab
+
+" for .q files
+au BufNewFile,BufRead *.q set filetype=hive expandtab
