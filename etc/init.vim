@@ -20,6 +20,7 @@ Plug 'w0rp/ale'
 Plug 'vim-python/python-syntax'
 Plug 'autowitch/hive.vim'
 Plug 'rodjek/vim-puppet'
+Plug 'chr4/nginx.vim'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
