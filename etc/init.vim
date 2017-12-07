@@ -20,6 +20,8 @@ Plug 'w0rp/ale'
 Plug 'vim-python/python-syntax'
 Plug 'autowitch/hive.vim'
 Plug 'rodjek/vim-puppet'
+Plug 'rust-lang/rust.vim'
+Plug 'moll/vim-bbye'
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
@@ -141,7 +143,7 @@ map <c-j> :BuffergatorMruCycleNext<cr>
 " list buffers
 map <c-b> :BuffergatorToggle<cr>
 " close buffer
-map <c-w> :bp <bar> bd #<cr>
+map <c-w> :Bdelete<cr>
 " let buffers be hidden
 set hidden
 " split new window at bottom
@@ -170,3 +172,7 @@ au BufNewFile,BufRead *.hql set filetype=hive expandtab
 
 " for .q files
 au BufNewFile,BufRead *.q set filetype=hive expandtab
+
+" Use rls for rust linting.
+let g:ale_linters = {'rust': ['rls']}
+
