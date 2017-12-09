@@ -22,6 +22,8 @@ Plug 'autowitch/hive.vim'
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
 Plug 'moll/vim-bbye'
+Plug 'chr4/nginx.vim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 call plug#end()
 " install plugins
 map <c-i> :PlugInstall<cr>
