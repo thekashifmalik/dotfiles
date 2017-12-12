@@ -1,6 +1,7 @@
 " PLUGINS
 call plug#begin()
-Plug 'sickill/vim-monokai'
+Plug 'lsdr/monokai'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -32,7 +33,11 @@ let g:plug_window = "botright new"
 
 " APPEARANCE
 " use the best color theme
+syntax enable
+set background=dark
 colorscheme monokai
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
 " use 24-bit color
 set termguicolors
 " better performance
@@ -124,6 +129,8 @@ map , :edit ~/.config/nvim/init.vim<cr>
 map <c-r> :source ~/.config/nvim/init.vim<cr>
 
 " EDITING
+" modern backspace
+set backspace=indent,eol,start
 " redo
 map U :redo<cr>
 " save
@@ -140,6 +147,8 @@ map <c-h> :wincmd<space>W<cr>
 map <c-n> :vertical<space>new<cr>
 " close window
 map <c-q> :q<cr>
+" buffergator.
+let g:buffergator_viewport_split_policy="B"
 " next buffer
 map <c-j> :BuffergatorMruCycleNext<cr>
 " list buffers
@@ -164,11 +173,6 @@ let g:deoplete#enable_at_startup = 1
 let g:python_highlight_all = 1
 let g:pymode_python = 'python3'
 
-" javascript
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-
 " for .hql files
 au BufNewFile,BufRead *.hql set filetype=hive expandtab
 
@@ -176,5 +180,5 @@ au BufNewFile,BufRead *.hql set filetype=hive expandtab
 au BufNewFile,BufRead *.q set filetype=hive expandtab
 
 " Use rls for rust linting.
-let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters = {'rust': ['rls'], 'javascript': ['eslint']}
 
