@@ -49,7 +49,7 @@ set relativenumber
 " highlight current line
 set cursorline
 " enable sexy font
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 " enable tab line
 let g:airline#extensions#tabline#enabled = 1
 " make space in the command bar for more info
@@ -154,6 +154,7 @@ map <c-j> :BuffergatorMruCycleNext<cr>
 " list buffers
 map <c-b> :BuffergatorToggle<cr>
 " close buffer
+map <c-w> <nop>
 map <c-w> :Bdelete<cr>
 " let buffers be hidden
 set hidden
@@ -182,3 +183,5 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 " Use rls for rust linting.
 let g:ale_linters = {'rust': ['rls'], 'javascript': ['eslint']}
 
+map <c-d> <nop>
+map <tab> <nop>
