@@ -29,25 +29,8 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -91,7 +74,7 @@ prompt_cmd () {
 
     # We start witha newline
     PS1="\n"
-    PS1+="\[${txtcyn}\]\D{%Y-%m-%dT%H-%M-%S}"
+    PS1+="\[${txtblu}\]bash"
     PS1+="\[${txtrst}\]://"
     PS1+="\[${txtgrn}\]\u"
     PS1+="\[${txtrst}\]@"
@@ -100,9 +83,20 @@ prompt_cmd () {
     PS1+="\[${txtred}\]\w"
 
     PS1+="\[${txtrst}\]?"
-    PS1+="\[${txtblu}\]pid"
+    PS1+="\[${txtcyn}\]datetime"
+    PS1+="\[${txtrst}\]="
+    PS1+="\[${txtpur}\]\D{%Y-%m-%dT%H:%M:%S}"
+    PS1+="\[${txtrst}\]&"
+    PS1+="\[${txtcyn}\]pid"
     PS1+="\[${txtrst}\]="
     PS1+="\[${txtpur}\]$$"
+
+    if ! [[ -z "$VIRTUAL_ENV" ]]; then
+        PS1+="\[${txtrst}\]&"
+        PS1+="\[${txtcyn}\]venv"
+        PS1+="\[${txtrst}\]="
+        PS1+="\[${txtpur}\]$VIRTUAL_ENV"
+    fi
 
     if [ "$(type -t deactivate)" = 'function' ]; then
         deactivate
@@ -112,14 +106,6 @@ prompt_cmd () {
         VIRTUAL_ENV_DISABLE_PROMPT=1
         source venv/bin/activate
     fi
-
-    if ! [[ -z "$VIRTUAL_ENV" ]]; then
-        PS1+="\[${txtrst}\]&"
-        PS1+="\[${txtblu}\]venv"
-        PS1+="\[${txtrst}\]="
-        PS1+="\[${txtpur}\]$VIRTUAL_ENV"
-    fi
-
     local branch
     if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
         local status=$(git status --porcelain 2> /dev/null)
@@ -129,21 +115,20 @@ prompt_cmd () {
             git_dirty=''
         fi
         PS1+="\[${txtrst}\]&"
-        PS1+="\[${txtblu}\]git"
+        PS1+="\[${txtcyn}\]git"
         PS1+="\[${txtrst}\]="
         PS1+="\[${txtpur}\]$branch$git_dirty"
     fi
 
     # Prompt.
     PS1+="\[${txtrst}\]\n"
-    PS1+="\[${txtcyn}\]\$\[${txtrst}\] "
+    PS1+="\[${txtblu}\]>\[${txtrst}\] "
 }
 export PROMPT_COMMAND='prompt_cmd'
 
 export TERM=xterm-256color
 export EDITOR=nvim
 
-# Add rust toolchain to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export GOPATH="$HOME/go"
@@ -154,7 +139,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # FZF completions.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # Bash completions.
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
