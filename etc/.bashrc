@@ -158,3 +158,5 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Bash completions.
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
