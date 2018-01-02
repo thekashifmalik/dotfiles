@@ -40,3 +40,6 @@ alias jq='jq -C'
 
 # Colorize httpie output.
 alias http='http --pretty all'
+
+# Output cdiff compatible putput
+alias diff='diff -u'
