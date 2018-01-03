@@ -4,8 +4,6 @@ case $- in
       *) return;;
 esac
 
-echo 'reading .bashrc'
-
 # Start SSH agent on first login.
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
   eval `ssh-agent`
@@ -66,72 +64,70 @@ if ! shopt -oq posix; then
 fi
 
 # Colors
-txtblk="$(tput setaf 0 2>/dev/null || echo '\e[0;30m')"  # Black
-txtred="$(tput setaf 1 2>/dev/null || echo '\e[0;31m')"  # Red
-txtgrn="$(tput setaf 2 2>/dev/null || echo '\e[0;32m')"  # Green
-txtylw="$(tput setaf 3 2>/dev/null || echo '\e[0;33m')"  # Yellow
-txtblu="$(tput setaf 4 2>/dev/null || echo '\e[0;34m')"  # Blue
-txtpur="$(tput setaf 5 2>/dev/null || echo '\e[0;35m')"  # Purple
-txtcyn="$(tput setaf 6 2>/dev/null || echo '\e[0;36m')"  # Cyan
-txtwht="$(tput setaf 7 2>/dev/null || echo '\e[0;37m')"  # White
-txtrst="$(tput sgr 0 2>/dev/null || echo '\e[0m')"  # Text Reset
+COLOR_NEUTRAL="\[\e[48;5;237m\]"
+COLOR_RESET="\[\e[0m\]"
+COLOR_1="\[\e[48;5;196m\]"
+COLOR_2="\[\e[48;5;202m\]"
+COLOR_3="\[\e[48;5;197m\]"
+COLOR_4="\[\e[48;5;233m\]"
 
 # Fancy prompt.
 prompt_cmd () {
     # Prompt format.
     # TIME://USERNAME@HOSTNAME/PATH?KEY=VALUE
 
-    # We start witha newline
-    PS1="\n"
-    PS1+="\[${txtblu}\]bash"
-    PS1+="\[${txtrst}\]://"
-    PS1+="\[${txtgrn}\]\u"
-    PS1+="\[${txtrst}\]@"
-    PS1+="\[${txtylw}\]\h"
-    PS1+="\[${txtrst}\]/"
-    PS1+="\[${txtred}\]\w"
+    # PS1="\n"
+    PSL="${COLOR_1} \u ${COLOR_RESET}"
+    PSL+="${COLOR_2} \h ${COLOR_RESET}"
+    PSL+="${COLOR_3} \w ${COLOR_RESET}"
 
-    PS1+="\[${txtrst}\]?"
-    PS1+="\[${txtcyn}\]datetime"
-    PS1+="\[${txtrst}\]="
-    PS1+="\[${txtpur}\]\D{%Y-%m-%dT%H:%M:%S}"
-    PS1+="\[${txtrst}\]&"
-    PS1+="\[${txtcyn}\]pid"
-    PS1+="\[${txtrst}\]="
-    PS1+="\[${txtpur}\]$$"
+    PSR="${COLOR_3} - ${COLOR_RESET}"
+    PSR+="${COLOR_2} master ${COLOR_RESET}"
+    PSR+="${COLOR_1} $$ ${COLOR_RESET}"
 
-    if ! [[ -z "$VIRTUAL_ENV" ]]; then
-        PS1+="\[${txtrst}\]&"
-        PS1+="\[${txtcyn}\]venv"
-        PS1+="\[${txtrst}\]="
-        PS1+="\[${txtpur}\]$VIRTUAL_ENV"
-    fi
+    # PS1+="${txtrst}?"
+    # PS1+="${txtcyn}datetime"
+    # PS1+="${txtrst}="
+    # PS1+="${txtpur}\D{%Y-%m-%dT%H:%M:%S}"
 
-    if [ "$(type -t deactivate)" = 'function' ]; then
-        deactivate
-    fi
+    # if ! [[ -z "$VIRTUAL_ENV" ]]; then
+    #     PSL+="${txtrst}&"
+    #     PSL+="${txtcyn}venv"
+    #     PSL+="${txtrst}="
+    #     PSL+="${txtpur}$VIRTUAL_ENV"
+    # fi
 
-    if [ -d "venv" ]; then
-        VIRTUAL_ENV_DISABLE_PROMPT=1
-        source venv/bin/activate
-    fi
-    local branch
-    if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-        local status=$(git status --porcelain 2> /dev/null)
-        if [[ "$status" != "" ]]; then
-            git_dirty='*'
-        else
-            git_dirty=''
-        fi
-        PS1+="\[${txtrst}\]&"
-        PS1+="\[${txtcyn}\]git"
-        PS1+="\[${txtrst}\]="
-        PS1+="\[${txtpur}\]$branch$git_dirty"
-    fi
+    # if [ "$(type -t deactivate)" = 'function' ]; then
+    #     deactivate
+    # fi
+
+    # if [ -d "venv" ]; then
+    #     VIRTUAL_ENV_DISABLE_PROMPT=1
+    #     source venv/bin/activate
+    # fi
+    # local branch
+    # if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+    #     local status=$(git status --porcelain 2> /dev/null)
+    #     if [[ "$status" != "" ]]; then
+    #         git_dirty='*'
+    #     else
+    #         git_dirty=''
+    #     fi
+    #     PSL+="${txtrst}&"
+    #     PSL+="${txtcyn}git"
+    #     PSL+="${txtrst}="
+    #     PSL+="${txtpur}$branch$git_dirty"
+    # fi
 
     # Prompt.
-    PS1+="\[${txtrst}\]\n"
-    PS1+="\[${txtblu}\]>\[${txtrst}\] "
+    # PSL+="${COLOR_RESET}\n"
+    # "${PS1}"
+    # PSL+="${COLOR_4}▶${COLOR_RESET} "
+
+    PS1="${PSL} ▶ "
+
+    # PS1=$(printf "%*s\r%s ▶ " "$(($(tput cols) - $(printf "%s" "$PSR" | wc -c)))" "${PSR}" "${PSL}")
+
 }
 export PROMPT_COMMAND='prompt_cmd'
 
