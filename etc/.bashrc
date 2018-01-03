@@ -1,10 +1,19 @@
-echo 'reading .bashrc'
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
+
+echo 'reading .bashrc'
+
+# Start SSH agent on first login.
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
+
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -145,3 +154,4 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
+export PATH="/usr/local/opt/node@6/bin:$PATH"
