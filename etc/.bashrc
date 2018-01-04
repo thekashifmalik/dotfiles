@@ -124,7 +124,7 @@ prompt_cmd () {
     # "${PS1}"
     # PSL+="${COLOR_4}▶${COLOR_RESET} "
 
-    PS1="${PSL} ▶ "
+    PS1="${PSL}\n▶ "
 
     # PS1=$(printf "%*s\r%s ▶ " "$(($(tput cols) - $(printf "%s" "$PSR" | wc -c)))" "${PSR}" "${PSL}")
 
@@ -149,5 +149,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # Bash completions.
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+export PATH=/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
 export PATH="/usr/local/opt/node@6/bin:$PATH"
