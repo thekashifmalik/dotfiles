@@ -27,7 +27,6 @@ Plug 'chr4/nginx.vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 call plug#end()
 " install plugins
-map <c-i> :PlugInstall<cr>
 " open plugin window at bottom
 let g:plug_window = "botright new"
 
@@ -48,8 +47,6 @@ set number
 set relativenumber
 " highlight current line
 set cursorline
-" enable sexy font
-"let g:airline_powerline_fonts = 1
 " enable tab line
 let g:airline#extensions#tabline#enabled = 1
 " make space in the command bar for more info
@@ -184,4 +181,6 @@ au BufNewFile,BufRead *.q set filetype=hive expandtab
 let g:ale_linters = {'rust': ['rls'], 'javascript': ['eslint']}
 
 map <c-d> <nop>
+
 map <tab> <nop>
+map <c-i> :PlugInstall<cr>

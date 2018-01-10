@@ -72,6 +72,7 @@ COLOR_3="\[\e[48;5;197m\]"
 COLOR_4="\[\e[48;5;199m\]"
 COLOR_5_1="\[\e[48;5;235m\]"
 COLOR_5_2="\[\e[48;5;239m\]"
+COLOR_6="\[\e[48;5;245m\]"
 
 # Fancy prompt.
 prompt_cmd () {
@@ -95,6 +96,10 @@ prompt_cmd () {
     if ! [[ -z "$VIRTUAL_ENV" ]]; then
         PSL+="${COLOR_5_1} VENV ${COLOR_RESET}"
         PSL+="${COLOR_5_2} $VIRTUAL_ENV ${COLOR_RESET}"
+    fi
+
+    if [[ -d "venv" ]] && [[ -z "$VIRTUAL_ENV" ]]; then
+        PSL+="${COLOR_6} VENV AVAILABLE ${COLOR_RESET}"
     fi
 
     PS1="${PSL}\n▶ "
