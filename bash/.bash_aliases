@@ -21,12 +21,7 @@ fi
 # Make aliases work with sudo.
 alias sudo='sudo '
 
-# ls aliases.
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# human readable output sizes
+# Human readable output sizes.
 alias du='du -h'
 alias df='df -h'
 
@@ -39,5 +34,11 @@ alias jq='jq -C'
 # Colorize httpie output.
 alias http='http --pretty all'
 
-# Output cdiff compatible putput
+# Output cdiff compatible output
 alias diff='diff -u'
+
+# Colorize tree output.
+alias tree='tree -C'
+
+alias cat='bat --plain'
+alias ls='exa --all --long --git'

@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -eo pipefail
-
-echo
-echo "linking bash config"
-ln -fsv $PWD/etc/.bashrc ~/.bashrc
-ln -fsv $PWD/etc/.bash_profile ~/.bash_profile
-ln -sfv $PWD/etc/.bash_aliases ~/.bash_aliases
-
-echo
-echo "source .bashrc to update environment"
+echo "Linking files:"
+ln -sfv \
+    $PWD/bash/.bashrc \
+    $PWD/bash/.bash_profile \
+    $PWD/bash/.bash_aliases \
+    $PWD/bash/.bash_prompt \
+    ~
+# echo "Run the following command or start a new shell:\n. ~/.bashrc"
+echo "Run the following command or start a new shell:"
+echo ". ~/.bashrc"
