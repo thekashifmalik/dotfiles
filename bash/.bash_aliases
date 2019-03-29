@@ -41,4 +41,9 @@ alias diff='diff -u'
 alias tree='tree -C'
 
 alias cat='bat --plain'
+alias ccat='bat --plain'
+
 alias ls='exa --all --long --git'
+alias cls='ls --color always'
+
+alias crg='rg --color always'
