@@ -47,3 +47,6 @@ alias ls='exa --all --long --git'
 alias cls='ls --color always'
 
 alias crg='rg --color always'
+
+# Change current dir when exiting ranger.
+alias ranger='. ranger'
