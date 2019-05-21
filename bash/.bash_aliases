@@ -43,8 +43,8 @@ alias tree='tree -C'
 alias cat='bat --plain'
 alias ccat='bat --plain'
 
-alias ls='exa --all --long --git'
-alias cls='ls --color always'
+alias ls='lsd --all --long'
+alias cls='ls --color always --icon always'
 
 alias crg='rg --color always'
 
