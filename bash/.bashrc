@@ -88,12 +88,12 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/path.bash.inc' ]; then source 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
+# FZF completions.
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 # SLOW
 # TODO: Figure out how to enable these without slowing down startup time.
-
-# # FZF completions.
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # # Bash completions.
 # [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
