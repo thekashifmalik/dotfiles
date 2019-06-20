@@ -92,11 +92,15 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then s
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+
+# Git completions.
+. "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+
 # SLOW
 # TODO: Figure out how to enable these without slowing down startup time.
 
 # # Bash completions.
-# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # # pipenv
 # export PIPENV_VENV_IN_PROJECT="1"
