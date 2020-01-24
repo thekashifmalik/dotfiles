@@ -50,3 +50,7 @@ alias crg='rg --color always'
 
 # Change current dir when exiting ranger.
 alias ranger='. ranger'
+
+function with-stash(){
+    git stash && "$@" && git stash pop
+}
