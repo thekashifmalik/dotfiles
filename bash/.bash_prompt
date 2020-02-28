@@ -18,43 +18,58 @@ prompt_cmd () {
 
     local branch
     if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
-        local status=$(git status --porcelain 2> /dev/null)
-        if [[ "$status" != "" ]]; then
-            git_dirty='*'
-        else
-            git_dirty=''
-        fi
-        PSL+="${COLOR_5_1} GIT ${COLOR_RESET}"
-        PSL+="${COLOR_5_2} $(git branch | grep "*" | cut -d" " -f2)$git_dirty ${COLOR_RESET}"
-    fi
-
-    if [[ -f "Dockerfile" ]]; then
-        PSL+="${COLOR_5_1} Dockerfile ${COLOR_RESET}"
-    fi
-
-    if [[ -f "docker-compose.yml" ]]; then
-        PSL+="${COLOR_5_1} docker-compose.yml ${COLOR_RESET}"
+        PSL+="${COLOR_5_1} BRANCH ${COLOR_RESET}"
+        PSL+="${COLOR_5_2} $(git branch | grep "*" | cut -d" " -f2) ${COLOR_RESET}"
     fi
 
     if ! [[ -z "$VIRTUAL_ENV" ]]; then
         PSL+="${COLOR_5_1} VENV ${COLOR_RESET}"
-        PSL+="${COLOR_5_2} $VIRTUAL_ENV ${COLOR_RESET}"
+        PSL+="${COLOR_5_2} $(realpath --relative-to=$PWD $VIRTUAL_ENV) ${COLOR_RESET}"
     fi
 
-    if [[ -d "venv" ]] && [[ -z "$VIRTUAL_ENV" ]]; then
-        PSL+="${COLOR_6} [VENV] ${COLOR_RESET}"
+    PSL+="${COLOR_5_1}  - ${COLOR_RESET}"
+
+    if [[ -f "Dockerfile" ]]; then
+        PSL+="${COLOR_5_1} [DOCKER] ${COLOR_RESET}"
+    elif [[ -f "docker-compose.yml" ]]; then
+        PSL+="${COLOR_5_1} [DOCKER] ${COLOR_RESET}"
     fi
 
-    if [[ -f "Gemfile" ]]; then
-        PSL+="${COLOR_6} [GEMFILE] ${COLOR_RESET}"
+    if [[ -f "requirements.txt" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f "setup.py" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f "manage.py" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f "Pipfile" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f "venv" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f ".venv" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
     fi
 
-    if [[ -f "Pipfile" ]]; then
-        PSL+="${COLOR_6} [PIPFILE] ${COLOR_RESET}"
-    fi
+    # if [[ -d "venv" ]] && [[ -z "$VIRTUAL_ENV" ]]; then
+    #     PSL+="${COLOR_5_1} [VENV] ${COLOR_RESET}"
+    # fi
+
+    # if [[ -f "Gemfile" ]]; then
+    #     PSL+="${COLOR_5_1} GEMFILE ${COLOR_RESET}"
+    # fi
+
+    # if [[ -f "Pipfile" ]]; then
+    #     PSL+="${COLOR_5_1} PIPFILE ${COLOR_RESET}"
+    # fi
 
     if [[ -f "package.json" ]]; then
-        PSL+="${COLOR_6} [PACKAGE.JSON] ${COLOR_RESET}"
+        PSL+="${COLOR_5_1} [NODE] ${COLOR_RESET}"
+    fi
+
+    if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
+        local status=$(git status --porcelain 2> /dev/null)
+        if [[ "$status" != "" ]]; then
+            PSL+="${COLOR_5_1} [DIRTY] ${COLOR_RESET}"
+        fi
     fi
 
     PS1="${PSL}\n▶ "
