@@ -26,6 +26,7 @@ ssh-add -l > /dev/null || ssh-add
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoredups:erasedups
+SHELL_SESSION_HISTORY=0
 
 # append to the history file, don't overwrite it
 shopt -s histappend
