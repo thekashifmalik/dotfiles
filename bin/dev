@@ -12,7 +12,10 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     echo "detected MacOS"
     brew update
     brew install \
+        git \
         tmux \
+        lsd \
+        bat \
         neovim
 fi
 
