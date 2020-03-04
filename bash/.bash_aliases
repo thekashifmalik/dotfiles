@@ -6,7 +6,7 @@ alias reset-venv-3='rm -rf venv && python3 -m venv venv && source venv/bin/activ
 # Make using docker-compose a little less tedious.
 alias dc='docker-compose'
 
-alias cdiff='cdiff --side-by-side --width=0'
+alias ydiff='ydiff --side-by-side --width=0'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -34,7 +34,7 @@ alias jq='jq -C'
 # Colorize httpie output.
 alias http='http --pretty all'
 
-# Output cdiff compatible output
+# Output ydiff compatible output
 alias diff='diff -u'
 
 # Colorize tree output.

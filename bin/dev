@@ -16,6 +16,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
         tmux \
         lsd \
         bat \
+        ydiff \
         neovim
 fi
 
