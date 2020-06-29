@@ -15,6 +15,6 @@ Install the prerequisites:
 
 Clone the repository and run the bootstrap script:
 
-    git clone https://github.com/kalail/dotfiles.git
+    git clone https://github.com/thekashifmalik/dotfiles.git
     cd dotfiles
-    bin/bootstrap-osx.sh
+    bin/dev.sh
