@@ -101,11 +101,16 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then s
 
 # FZF completions.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 
 # Git completions.
 . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # SLOW
 # TODO: Figure out how to enable these without slowing down startup time.
@@ -124,3 +129,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # # jEnv stuff.
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
+
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export BASH_SILENCE_DEPRECATION_WARNING=1
