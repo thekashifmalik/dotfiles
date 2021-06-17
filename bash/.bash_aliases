@@ -28,6 +28,11 @@ alias df='df -h'
 # Colorize less output.
 alias less='less -r'
 
+# Colorize jq output.
+alias jq='jq -C'
+
+# Colorize httpie output.
+alias http='http --pretty all'
 
 # Output ydiff compatible output
 alias diff='diff -u'
