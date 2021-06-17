@@ -40,8 +40,14 @@ alias diff='diff -u'
 # Colorize tree output.
 alias tree='tree -C'
 
-alias cat='bat --plain'
-alias ccat='bat --plain'
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    alias cat='bat --plain'
+    alias ccat='bat --plain'
+fi
+
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    alias cat='batcat --plain'
+fi
 
 alias ls='lsd --all --long'
 alias cls='ls --color always --icon always'
