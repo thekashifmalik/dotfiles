@@ -8,13 +8,14 @@ COLOR_4="\[\e[48;5;199m\]"
 COLOR_5_1="\[\e[48;5;235m\]"
 COLOR_5_2="\[\e[48;5;239m\]"
 COLOR_6="\[\e[48;5;245m\]"
+COLOR_FG_BLACK="\[\e[38;5;232m\]"
 
 # Fancy prompt.
 prompt_cmd () {
-    PSL="${COLOR_1}  BASH  ${COLOR_RESET}"
-    PSL+="${COLOR_2} \u ${COLOR_RESET}"
-    PSL+="${COLOR_3} @\h ${COLOR_RESET}"
-    PSL+="${COLOR_4} \w ${COLOR_RESET}"
+    PSL="${COLOR_1}${COLOR_FG_BLACK}  BASH  ${COLOR_RESET}"
+    PSL+="${COLOR_2}${COLOR_FG_BLACK} \u ${COLOR_RESET}"
+    PSL+="${COLOR_3}${COLOR_FG_BLACK} @\h ${COLOR_RESET}"
+    PSL+="${COLOR_4}${COLOR_FG_BLACK} \w ${COLOR_RESET}"
 
     local branch
     if branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null); then
