@@ -103,8 +103,6 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then s
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-# Disable zsh warning: https://support.apple.com/en-us/HT208050
-export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Git completions.
 . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"

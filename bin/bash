@@ -7,8 +7,6 @@ ln -sfv \
     $PWD/bash/.bash_aliases \
     $PWD/bash/.bash_prompt \
     ~
-# Disable last login message
-touch ~/.hushlogin
 # echo "Run the following command or start a new shell:\n. ~/.bashrc"
 echo "Run the following command or start a new shell:"
 echo ". ~/.bashrc"
