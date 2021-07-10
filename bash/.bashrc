@@ -105,7 +105,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 
 # Git completions.
-. "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+fi
 
 # SLOW
 # TODO: Figure out how to enable these without slowing down startup time.

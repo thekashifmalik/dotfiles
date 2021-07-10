@@ -74,8 +74,6 @@ prompt_cmd () {
     fi
 
     PS1="${PSL}\n▶ "
-    # PS1="${PSL}\n> "
-    # PS1="${PSL}\n$ "
 }
 export PROMPT_COMMAND='prompt_cmd'
 

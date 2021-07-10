@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -eo pipefail
+
 echo "Linking files:"
 ln -sfv \
     $PWD/bash/.bashrc \
@@ -7,6 +8,6 @@ ln -sfv \
     $PWD/bash/.bash_aliases \
     $PWD/bash/.bash_prompt \
     ~
-# echo "Run the following command or start a new shell:\n. ~/.bashrc"
+
 echo "Run the following command or start a new shell:"
 echo ". ~/.bashrc"
