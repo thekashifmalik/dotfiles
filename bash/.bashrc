@@ -117,7 +117,6 @@ fi
 
 # # pyenv setup.
 # eval "$(pyenv init -)"
-# HOMEBREW_NO_AUTO_UPDATE=1
 
 # # jEnv stuff.
 # export PATH="$HOME/.jenv/bin:$PATH"
@@ -130,3 +129,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/dotfiles/disqus/bin:$PATH"
+
+# Disable brew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1
