@@ -48,6 +48,10 @@ prompt_cmd () {
         PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
     elif [[ -f ".venv" ]]; then
         PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f "pyproject.toml" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
+    elif [[ -f "poetry.lock" ]]; then
+        PSL+="${COLOR_5_1} [PYTHON] ${COLOR_RESET}"
     fi
 
     # if [[ -d "venv" ]] && [[ -z "$VIRTUAL_ENV" ]]; then
