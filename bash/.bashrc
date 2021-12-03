@@ -74,6 +74,7 @@ export EDITOR=nvim
 
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
