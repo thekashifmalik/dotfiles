@@ -14,24 +14,35 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew install \
         git \
         tmux \
-        lsd \
         bat \
-        ydiff \
         neovim
 fi
 
 # Linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
+
     echo "detected Linux"
     sudo apt update
     sudo apt install -y software-properties-common
     sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt update
     sudo apt install -y \
+        git \
         tmux \
         neovim \
-        gcc
+        gcc \
+        bat \
+        httpie
+
 fi
+
+
+cargo install \
+    lsd
+
+pip install \
+    ydiff
+
 
 if [ ! -d ~/.fzf ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
