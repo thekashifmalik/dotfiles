@@ -1,0 +1,11 @@
+{
+  "experimental" : "disabled",
+  "credsStore" : "desktop",
+  "stackOrchestrator" : "swarm",
+  "auths" : {
+    "https://index.docker.io/v1/" : {
+
+    }
+  },
+  "detachKeys" : "ctrl-q,q"
+}

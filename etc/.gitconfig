@@ -11,6 +11,6 @@
     cm = commit
 
 [push]
-    default = simple
+	default = current
 [pull]
 	ff = only
