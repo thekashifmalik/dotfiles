@@ -70,7 +70,8 @@ fi
 export TERM=xterm-256color
 export EDITOR=nvim
 
-. "$HOME/.cargo/env"
+. "$HOME/.cargo/env" || true
+export PATH=$PATH:$HOME/.cargo/bin
 
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
