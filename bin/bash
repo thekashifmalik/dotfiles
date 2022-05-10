@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -exo pipefail
 
 echo "Linking files:"
-ln -sfv \
+ln \
+    --symbolic \
+    --force \
+    --verbose \
     $PWD/bash/.bashrc \
     $PWD/bash/.bash_profile \
     $PWD/bash/.bash_aliases \
