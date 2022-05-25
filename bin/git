@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-echo "linking config file"
-ln -fsv $PWD/etc/.gitconfig ~/.gitconfig
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    brew update
+    brew install git
+fi
+
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    sudo apt update
+    sudo apt install -y git
+fi
+
+ln -fsv $PWD/git/.gitconfig ~

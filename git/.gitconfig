@@ -11,6 +11,9 @@
     cm = commit
 
 [push]
-	default = current
+    default = current
 [pull]
-	ff = only
+    ff = only
+
+[includeIf "gitdir:~/Code/coinbase/"]
+    path = ~/dotfiles/coinbase/.gitconfig
