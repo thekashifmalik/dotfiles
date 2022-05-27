@@ -16,8 +16,9 @@ fi
 
 # Start SSH agent on first login.
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+    eval `ssh-agent`
+    mkdir -p ~/.ssh
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
@@ -60,17 +61,17 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 export TERM=xterm-256color
 export EDITOR=nvim
 
-. "$HOME/.cargo/env" || true
+[ -f ~/.cargo/env ] && . "$HOME/.cargo/env"
 export PATH=$PATH:$HOME/.cargo/bin
 
 export GOPATH="$HOME/go"
@@ -134,3 +135,5 @@ export PATH="$HOME/dotfiles/disqus/bin:$PATH"
 
 # Disable brew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+[ -e ~/dotfiles/coinbase/.bashrc ] && . ~/dotfiles/coinbase/.bashrc
