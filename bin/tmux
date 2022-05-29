@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-echo "linking config file"
-ln -fsv $PWD/etc/.tmux.conf ~/.tmux.conf
+ln -fsv $PWD/tmux/.tmux.conf ~/.tmux.conf
