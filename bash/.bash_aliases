@@ -60,3 +60,8 @@ alias ranger='. ranger'
 function with-stash(){
     git stash && "$@" && git stash pop
 }
+
+# Use gdate by default on MacOS
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    alias date='gdate'
+fi
