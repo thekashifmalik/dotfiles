@@ -86,11 +86,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
 export PATH="/usr/local/opt/node@6/bin:$PATH"
 
-# Homebrew fix for gmp compile errors.
-export "CFLAGS=-I/usr/local/include -L/usr/local/lib"
-
-export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
