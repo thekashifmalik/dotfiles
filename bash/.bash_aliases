@@ -32,7 +32,7 @@ alias less='less -r'
 alias jq='jq -C'
 
 # Colorize httpie output.
-alias http='http --pretty all'
+alias httpp='http --pretty all'
 
 # Output ydiff compatible output
 alias diff='diff -u'
