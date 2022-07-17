@@ -1,0 +1,17 @@
+Host ssh.somememes.com
+    User root
+    IdentityFile ~/.ssh/somememes
+
+Host ssh.whatisthebestcolor.com
+    User ubuntu
+    IdentityFile ~/.ssh/whatisthebestcolor
+
+Host desktop-1.local
+
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    IdentityFile ~/.ssh/whitelion.key
+
+Host ssh.whatsthecurrentthing.com
+    User root
