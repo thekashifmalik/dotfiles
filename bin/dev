@@ -51,7 +51,7 @@ ln -fsv $PWD/git/.gitconfig ~
 ln -fsv $PWD/tmux/.tmux.conf ~/.tmux.conf
 # Install Tmux Plugin Manager
 if [ -e ~/.tmux/plugins/tpm ]; then
-    cd ~/.tmux/plugins/tpm && git pull
+    git -C ~/.tmux/plugins/tpm pull
 else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
