@@ -103,7 +103,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 fi
 
-# SSH completion. Copied from: https://dev.to/ahmedmusallam/how-to-autocomplete-ssh-hosts-1hob
+# SSH host completion. Copied from: https://dev.to/ahmedmusallam/how-to-autocomplete-ssh-hosts-1hob
 _ssh()
 {
     local cur prev opts
