@@ -103,6 +103,20 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 fi
 
+# SSH completion. Copied from: https://dev.to/ahmedmusallam/how-to-autocomplete-ssh-hosts-1hob
+_ssh()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
+
+    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+    return 0
+}
+complete -F _ssh ssh
+
 # SLOW
 # TODO: Figure out how to enable these without slowing down startup time.
 
