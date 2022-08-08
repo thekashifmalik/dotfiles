@@ -29,7 +29,7 @@ alias df='df -h'
 alias less='less -r'
 
 # Colorize jq output.
-alias jq='jq -C'
+alias jqp='jq -C'
 
 # Colorize httpie output.
 alias httpp='http --pretty all'
