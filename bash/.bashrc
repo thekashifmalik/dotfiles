@@ -15,12 +15,9 @@ if [ -f ~/.bash_prompt ]; then
 fi
 
 # Start SSH agent on first login.
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+if [ ! -S $SSH_AUTH_SOCK ]; then
     eval `ssh-agent`
-    mkdir -p ~/.ssh
-    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || ssh-add
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -97,6 +94,11 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then s
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+# Disable brew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Git completions.
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -141,8 +143,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/dotfiles/disqus/bin:$PATH"
-
-# Disable brew auto-update
-export HOMEBREW_NO_AUTO_UPDATE=1
 
 [ -e ~/dotfiles/coinbase/.bashrc ] && . ~/dotfiles/coinbase/.bashrc

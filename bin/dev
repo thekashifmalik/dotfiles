@@ -57,6 +57,7 @@ else
 fi
 
 # SSH
+mkdir -p ~/.ssh
 ln -fsv $PWD/ssh/config ~/.ssh
 
 
