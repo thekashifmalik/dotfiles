@@ -94,14 +94,16 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then s
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-# Disable brew auto-update
-export HOMEBREW_NO_AUTO_UPDATE=1
 
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Git completions.
 if [[ "$OSTYPE" =~ ^darwin ]]; then
+    # Disable brew auto-update
+    export HOMEBREW_NO_AUTO_UPDATE=1
+
+    # Set PATH, MANPATH, etc., for Homebrew.
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # Git completions.
     . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 fi
 
