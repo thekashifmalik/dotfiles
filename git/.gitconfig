@@ -18,3 +18,5 @@
 
 [includeIf "gitdir:~/Code/coinbase/"]
     path = ~/dotfiles/coinbase/.gitconfig
+[init]
+	defaultBranch = master
