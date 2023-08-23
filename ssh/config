@@ -14,5 +14,5 @@ Host ssh.whatisthebestcolor.com
 Host ssh.whatsthecurrentthing.com
     User root
 
-Host desktop-1.local
+Host desktop-1
     IdentityFile ~/.ssh/redwolf.key
