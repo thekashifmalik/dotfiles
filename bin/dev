@@ -37,7 +37,12 @@ fi
 echo
 echo "linking config files"
 # VSCode
-ln -fsv $PWD/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    ln -fsv $PWD/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+fi
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    ln -fsv $PWD/vscode/settings.json $HOME/.config/Code/User/settings.json
+fi
 # Bash
 ln -sfv \
     $PWD/bash/.bashrc \
