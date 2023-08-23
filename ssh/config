@@ -15,4 +15,13 @@ Host ssh.whatsthecurrentthing.com
     User root
 
 Host desktop-1
+    User thekashifmalik
     IdentityFile ~/.ssh/redwolf.key
+
+Host laptop-2
+
+Host laptop-3
+    User thekashifmalik
+
+Host *
+    IdentitiesOnly yes
