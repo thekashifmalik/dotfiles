@@ -3,15 +3,18 @@ Host github.com
     Port 443
     IdentityFile ~/.ssh/whitelion.key
 
-Host ssh.somememes.com
+Host somememes.com
+    Hostname ssh.somememes.com
     User root
     IdentityFile ~/.ssh/somememes
 
-Host ssh.whatisthebestcolor.com
+Host whatisthebestcolor.com
+    Hostname ssh.whatisthebestcolor.com
     User ubuntu
     IdentityFile ~/.ssh/whatisthebestcolor
 
-Host ssh.whatsthecurrentthing.com
+Host whatsthecurrentthing.com
+    Hostname ssh.whatsthecurrentthing.com
     User root
 
 Host desktop-1
