@@ -1,30 +1,5 @@
-Host github.com
-    Hostname ssh.github.com
-    Port 443
-    IdentityFile ~/.ssh/whitelion.key
-
-Host somememes.com
-    Hostname ssh.somememes.com
-    User root
-    IdentityFile ~/.ssh/somememes
-
-Host whatisthebestcolor.com
-    Hostname ssh.whatisthebestcolor.com
-    User ubuntu
-    IdentityFile ~/.ssh/whatisthebestcolor
-
-Host whatsthecurrentthing.com
-    Hostname ssh.whatsthecurrentthing.com
-    User root
-
-Host desktop-1
-    User thekashifmalik
-    IdentityFile ~/.ssh/redwolf.key
-
-Host laptop-2
-
-Host laptop-3
-    User thekashifmalik
+# This has to go at the top of the file 
+Include config.d/*
 
 Host *
     IdentitiesOnly yes

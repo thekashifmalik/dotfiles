@@ -64,6 +64,8 @@ fi
 # SSH
 mkdir -p ~/.ssh
 ln -fsv $PWD/ssh/config ~/.ssh
+mkdir -p ~/.ssh/config.d
+ln -fsv $PWD/ssh/config.d/* ~/.ssh/config.d
 
 
 echo
