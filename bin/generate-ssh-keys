@@ -1,12 +1,11 @@
 #!/bin/bash
 set -eo pipefail
 
-: "${HOSTNAME?Need to set HOSTNAME}"
-: "${OUTPUT_FILENAME?Need to set OUTPUT_FILENAME}"
+read -p "Enter name for SSH key: " KEY_NAME
 
 # Create SSH key
-ssh-keygen -t rsa -b 4096 -C "$HOSTNAME" -f "$OUTPUT_FILENAME"
+ssh-keygen -t ed25519 -C "$KEY_NAME" -f "$KEY_NAME.key" -N ""
 
 # Add key to SSH agent.
-eval "$(ssh-agent -s)"
-ssh-add "$OUTPUT_FILENAME"
+#eval "$(ssh-agent -s)"
+#ssh-add "$OUTPUT_FILENAME"

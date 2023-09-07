@@ -27,7 +27,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
         fzf \
         jq
 
-    cargo install \
+    snap install \
         lsd
 
     pip install \
