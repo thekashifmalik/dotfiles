@@ -40,8 +40,11 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
         python3-pip \
         git-crypt
 
-    sudo snap install \
-        lsd
+    # TODO: Switch back to cargo since snap doesn't support lsd on raspberry pi.
+    if [[ "$RASPBERRY_PI" = false ]]; then
+        sudo snap install \
+            lsd
+    fi
 
     pip install \
         ydiff
