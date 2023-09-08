@@ -24,7 +24,6 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
         sudo add-apt-repository -y ppa:neovim-ppa/stable
         sudo apt install -y neovim
     fi
-    exit
     sudo apt install -y \
         bash \
         git \
