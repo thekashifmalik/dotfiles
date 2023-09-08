@@ -1,1 +1,1 @@
-ssh/config.d/hosts filter=git-crypt diff=git-crypt
+ssh/config.d/* filter=git-crypt diff=git-crypt

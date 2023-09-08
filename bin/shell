@@ -6,7 +6,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     echo "detected MacOS"
     brew update
     brew bundle
-    sudo ln -sfv $PWD/bash/shells /etc/shells
+    sudo ln --force --symbolic --verbose $PWD/bash/shells /etc/shells
 fi
 
 # Linux
@@ -57,11 +57,11 @@ else
 fi
 
 # SSH
-mkdir -p ~/.ssh
-ln -fsv $PWD/ssh/config ~/.ssh
-mkdir -p ~/.ssh/config.d
-ln -fsv $PWD/ssh/config.d/* ~/.ssh/config.d
-
+mkdir --parents --verbose ~/.ssh
+ln --force --symbolic --verbose $PWD/ssh/config ~/.ssh
+ln --force --symbolic --verbose $PWD/ssh/config.d ~/.ssh
+# TODO: Figure out if we're adding keys to this public repository.
+# ln --force --symbolic --verbose $PWD/ssh/keys ~/.ssh
 
 echo
 echo "setting up neovim"
