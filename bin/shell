@@ -14,15 +14,19 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
     RASPBERRY_PI=false
     echo "detected Linux"
     if [[ -e /proc/device-tree/model && `cat /proc/device-tree/model` =~ ^Raspberry ]]; then
-        echo "detected Raspberry Pi, support in-progress"
         RASPBERRY_PI=true
+        echo "detected Raspberry Pi, installing support software"
+        sudo apt install -y snapd
+        sudo snap install core
     fi
     sudo apt update
     sudo apt install -y software-properties-common
-    # TODO: Figure out how to install nvim on raspberry pi.
     if [[ "$RASPBERRY_PI" = false ]]; then
         sudo add-apt-repository -y ppa:neovim-ppa/stable
         sudo apt install -y neovim
+    fi
+    if [[ "$RASPBERRY_PI" = true ]]; then
+        sudo snap install nvim --classic
     fi
     sudo apt install -y \
         bash \
