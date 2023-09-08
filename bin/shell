@@ -40,7 +40,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
         python3-pip \
         git-crypt
 
-    snap install \
+    sudo snap install \
         lsd
 
     pip install \
