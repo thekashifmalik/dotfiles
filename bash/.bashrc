@@ -105,6 +105,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     # Git completions.
     . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
+
+    # We want to use GNU core utils when possible
+    PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
 # SSH host completion. Copied from: https://dev.to/ahmedmusallam/how-to-autocomplete-ssh-hosts-1hob
