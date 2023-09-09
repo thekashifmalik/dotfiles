@@ -3,8 +3,10 @@ set -eo pipefail
 
 # MacOS
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-    echo "detected MacOS"
+    echo "> detected MacOS"
+    echo "> updating brew"
     brew update
+    echo "> bundling brew"
     brew bundle
     sudo ln --force --symbolic --verbose $PWD/bash/shells /etc/shells
 fi
@@ -12,10 +14,10 @@ fi
 # Linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
     RASPBERRY_PI=false
-    echo "detected Linux"
+    echo "> detected Linux"
     if [[ -e /proc/device-tree/model && `cat /proc/device-tree/model` =~ ^Raspberry ]]; then
         RASPBERRY_PI=true
-        echo "detected Raspberry Pi, installing support software"
+        echo "> detected Raspberry Pi, installing support software"
         sudo apt install -y snapd
         sudo snap install core
     fi
@@ -50,8 +52,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
         ydiff
 fi
 
-echo
-echo "linking config files"
+echo "> linking config files"
 # Bash
 ln -sfv \
     $PWD/bash/.bashrc \
@@ -65,19 +66,24 @@ ln -fsv $PWD/git/.gitconfig ~
 ln -fsv $PWD/tmux/.tmux.conf ~/.tmux.conf
 # Install Tmux Plugin Manager
 if [ -e ~/.tmux/plugins/tpm ]; then
+    echo "> updating tpm"
     git -C ~/.tmux/plugins/tpm pull
 else
+    echo "> fetching tpm"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # SSH
+echo "> linking ssh config"
 mkdir --parents --verbose ~/.ssh
 ln --force --symbolic --verbose $PWD/ssh/config ~/.ssh
 ln --force --symbolic --verbose $PWD/ssh/config.d ~/.ssh
 # TODO: Figure out if we're adding keys to this public repository.
 # ln --force --symbolic --verbose $PWD/ssh/keys ~/.ssh
 
-echo
-echo "setting up neovim"
+echo "> setting up neovim"
 mkdir -p ~/.config/nvim && ln -fsv $PWD/etc/init.vim ~/.config/nvim/init.vim
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+echo "> fetching vim-plug"
+curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "> shell setup complete"
