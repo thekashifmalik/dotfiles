@@ -23,7 +23,7 @@ alias sudo='sudo '
 
 # Human readable output sizes.
 alias du='du -h'
-alias df='df -h'
+alias df='df -h -T'
 
 # Colorize less output.
 alias less='less -r'
