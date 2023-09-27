@@ -4,7 +4,7 @@ alias reset-venv-3='rm -rf venv && python3 -m venv venv && source venv/bin/activ
 
 
 # Make using docker-compose a little less tedious.
-alias dc='docker-compose'
+alias dc='docker compose'
 
 alias ydiff='ydiff --side-by-side --width=0'
 
