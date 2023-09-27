@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+ln -fsv $PWD/systemd/iperf3.service /etc/systemd/system
