@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -eo pipefail
+rsync -hav --delete -e ssh ~/Logic $DESTINATION
+rsync -hav --delete -e ssh ~/No\ Crimson $DESTINATION
+rsync -hav --delete -e ssh ~/Photography $DESTINATION

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -eo pipefail
+rsync -hav --delete -e ssh /mnt/HDD-3/Music $DESTINATION
+rsync -hav --delete -e ssh /mnt/HDD-3/Movies $DESTINATION

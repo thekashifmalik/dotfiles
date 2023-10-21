@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -eo pipefail
+echo "Backing up: $HOSTNAME"
+
+export DESTINATION=nas-1::NetBackup
+echo "Backup destination: $DESTINATION"
+
+exec bin/backup-$HOSTNAME
