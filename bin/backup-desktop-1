@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
-rsync -hav --delete -e ssh \
+sudo rsync -hav --delete -e ssh \
     /mnt/HDD-3/Music \
     /mnt/HDD-3/Movies \
     ~/whatisthebestcolor \
-    $DESTINATION
+    thekashifmalik@$DESTINATION
