@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+sudo cp cron/cron.d/backup /etc/cron.d
