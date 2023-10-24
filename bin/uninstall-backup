@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-sudo rm -f /etc/cron.d/backup
+sudo rm -vf /etc/cron.d/backup
