@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+sudo cp -v cron/tabs/thekashifmalik /usr/lib/cron/tabs
+# We need to touch the crontab for cron to reload the user cron tabs on MacOS.
+sudo touch /etc/crontab

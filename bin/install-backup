@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 set -eo pipefail
-
-sudo cp -v cron/cron.d/backup /etc/cron.d
+exec bin/install-backup-$HOSTNAME

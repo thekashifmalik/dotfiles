@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 set -eo pipefail
-exec bin/uninstall-backup-$HOSTNAME
+
+sudo rm -vf /etc/cron.d/backup
