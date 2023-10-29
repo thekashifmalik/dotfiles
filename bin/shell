@@ -73,13 +73,7 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# SSH
-echo "> linking ssh config"
-mkdir --parents --verbose ~/.ssh
-ln --force --symbolic --verbose $PWD/ssh/config ~/.ssh
-ln --force --symbolic --verbose $PWD/ssh/config.d ~/.ssh
-# TODO: Figure out if we're adding keys to this public repository.
-# ln --force --symbolic --verbose $PWD/ssh/keys ~/.ssh
+ssh/bin/link
 
 echo "> setting up neovim"
 mkdir -p ~/.config/nvim && ln -fsv $PWD/etc/init.vim ~/.config/nvim/init.vim
