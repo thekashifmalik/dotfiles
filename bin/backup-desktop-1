@@ -12,10 +12,17 @@ rsync -hav --delete -e ssh \
     $DESTINATION
 
 cd ~/whatisthebestcolor
-bin/pg_dump > pg.dump
+bin/pg_dump > db.dump
 rsync -hav --delete -e ssh \
-    ~/whatisthebestcolor/pg.dump \
+    ~/whatisthebestcolor/db.dump \
     ~/whatisthebestcolor/var/nginx/access.log \
     ~/whatisthebestcolor/var/nginx/error.log \
     $DESTINATION/whatisthebestcolor/
-rm pg.dump
+rm -v db.dump
+
+cd ~/somememes
+bin/pg_dump > db.sql
+rsync -hav --delete -e ssh \
+    ~/somememes/db.sql \
+    $DESTINATION/somememes/
+rm -v db.sql
