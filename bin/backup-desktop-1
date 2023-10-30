@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -eo pipefail
-exec rsync -hav --delete -e ssh \
+rsync -hav --delete -e ssh \
     /mnt/HDD-3/Music \
     /mnt/HDD-3/Movies \
     /mnt/HDD-3/Documents \
@@ -9,5 +9,13 @@ exec rsync -hav --delete -e ssh \
     /mnt/HDD-3/Pictures \
     /mnt/HDD-3/Screenplays \
     /mnt/HDD-3/Videos \
-    ~/whatisthebestcolor \
     $DESTINATION
+
+cd ~/whatisthebestcolor
+bin/pg_dump > pg.dump
+rsync -hav --delete -e ssh \
+    ~/whatisthebestcolor/pg.dump \
+    ~/whatisthebestcolor/var/nginx/access.log \
+    ~/whatisthebestcolor/var/nginx/error.log \
+    $DESTINATION/whatisthebestcolor/
+rm pg.dump
