@@ -1,0 +1,1 @@
+alias ydiff='ydiff --side-by-side --width=0'

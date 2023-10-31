@@ -1,0 +1,2 @@
+# Change current dir when exiting ranger.
+alias ranger='. ranger'

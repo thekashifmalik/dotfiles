@@ -1,0 +1,2 @@
+# Colorize httpie output.
+alias httpp='http --pretty all'

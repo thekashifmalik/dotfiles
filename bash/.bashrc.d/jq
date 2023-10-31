@@ -1,0 +1,2 @@
+# Colorize jq output.
+alias jqp='jq -C'

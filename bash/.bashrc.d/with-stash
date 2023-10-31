@@ -1,0 +1,3 @@
+function with-stash(){
+    git stash && "$@" && git stash pop
+}

@@ -1,0 +1,9 @@
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    alias cat='bat --plain'
+    alias ccat='bat --plain'
+fi
+
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    alias cat='batcat --plain'
+fi

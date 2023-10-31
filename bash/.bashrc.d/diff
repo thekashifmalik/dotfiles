@@ -1,0 +1,2 @@
+# Output ydiff compatible output
+alias diff='diff -u'

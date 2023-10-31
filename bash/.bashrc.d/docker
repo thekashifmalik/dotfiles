@@ -1,0 +1,2 @@
+# Make using docker-compose a little less tedious.
+alias dc='docker compose'
