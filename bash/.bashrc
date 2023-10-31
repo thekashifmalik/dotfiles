@@ -150,3 +150,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/dotfiles/disqus/bin:$PATH"
 
 [ -e ~/dotfiles/coinbase/.bashrc ] && . ~/dotfiles/coinbase/.bashrc
+
+# Format for time command.
+TIMEFORMAT='> time: %lR'
