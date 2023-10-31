@@ -18,13 +18,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Make aliases work with sudo.
-alias sudo='sudo '
-
-# Human readable output sizes.
-alias du='du -h'
-alias df='df -h -T'
-
 # Colorize less output.
 alias less='less -r'
 

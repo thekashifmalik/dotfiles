@@ -4,40 +4,17 @@ case $- in
       *) return;;
 esac
 
-# Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# Fancy bash prompt.
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-fi
+# Read files in ~/.bashrc.d
+for FILE in ~/.bashrc.d/*;
+do
+. $FILE
+done
 
 # Start SSH agent on first login.
 if [ ! -S $SSH_AUTH_SOCK ]; then
     eval `ssh-agent`
 fi
 ssh-add -l > /dev/null || ssh-add
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoredups:erasedups
-SHELL_SESSION_HISTORY=0
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# Eternal bash history.
-# ---------------------
-# Undocumented feature which sets the size to "unlimited".
-# http://stackoverflow.com/questions/9457233/unlimited-bash-history
-export HISTFILESIZE=
-export HISTSIZE=
-export HISTTIMEFORMAT="[%F %T] "
-# Change the file location because certain bash sessions truncate .bash_history file upon close.
-# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
-export HISTFILE=~/.bash_eternal_history
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -90,11 +67,6 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/path.bash.inc' ]; then source 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
-# FZF completions.
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-
-
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     # Disable brew auto-update
@@ -140,8 +112,6 @@ complete -F _ssh ssh
 # # jEnv stuff.
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
-
-export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

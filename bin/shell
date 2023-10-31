@@ -53,13 +53,8 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 fi
 
 echo "> linking config files"
-# Bash
-ln -sfv \
-    $PWD/bash/.bashrc \
-    $PWD/bash/.bash_profile \
-    $PWD/bash/.bash_aliases \
-    $PWD/bash/.bash_prompt \
-    ~
+bash/bin/link
+
 # Git
 ln -fsv $PWD/git/.gitconfig ~
 # TMUX
