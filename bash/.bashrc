@@ -4,6 +4,8 @@ case $- in
       *) return;;
 esac
 
+echo "> Reading BASH config: $PWD/.bashrc"
+
 # Read files in ~/.bashrc.d
 for FILE in ~/.bashrc.d/*;
 do
@@ -76,19 +78,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
-# SSH host completion. Copied from: https://dev.to/ahmedmusallam/how-to-autocomplete-ssh-hosts-1hob
-_ssh()
-{
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
-
-    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
-    return 0
-}
-complete -F _ssh ssh
 
 # SLOW
 # TODO: Figure out how to enable these without slowing down startup time.
@@ -107,13 +96,6 @@ complete -F _ssh ssh
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export PATH="$HOME/dotfiles/disqus/bin:$PATH"
 
 [ -e ~/dotfiles/coinbase/.bashrc ] && . ~/dotfiles/coinbase/.bashrc
-
-# Format for time command.
-TIMEFORMAT='> time: %lR'
