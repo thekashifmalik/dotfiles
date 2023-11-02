@@ -10,12 +10,6 @@ do
 . $FILE
 done
 
-# Start SSH agent on first login.
-if [ ! -S $SSH_AUTH_SOCK ]; then
-    eval `ssh-agent`
-fi
-ssh-add -l > /dev/null || ssh-add
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
