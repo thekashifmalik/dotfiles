@@ -3,6 +3,6 @@ services:
   nginx:
     image: "nginx:latest"
     ports:
-      "8080:80"
+      - "8080:80"
     volumes:
       - ./nginx/server-2:/etc/nginx/conf.d
