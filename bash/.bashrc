@@ -66,7 +66,12 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     export HOMEBREW_NO_AUTO_UPDATE=1
 
     # Set PATH, MANPATH, etc., for Homebrew.
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    if [[ $(uname -m) == 'arm64' ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+    if [[ $(uname -m) == 'x86_64' ]]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 
     # Git completions.
     . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
