@@ -9,6 +9,8 @@ rsync -hav --delete -e ssh \
     /mnt/HDD-3/Pictures \
     /mnt/HDD-3/Screenplays \
     /mnt/HDD-3/Videos \
+    /mnt/HDD-3/Hidden \
+    /mnt/HDD-3/Papers \
     $DESTINATION
 
 cd ~/whatisthebestcolor
