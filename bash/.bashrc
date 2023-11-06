@@ -4,7 +4,7 @@ case $- in
       *) return;;
 esac
 
-echo "> Reading BASH config: $PWD/.bashrc"
+echo "> Reading BASH config: $HOME/.bashrc"
 
 # Read files in ~/.bashrc.d
 for FILE in ~/.bashrc.d/*;
