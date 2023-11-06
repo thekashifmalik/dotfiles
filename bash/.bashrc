@@ -9,8 +9,40 @@ echo "> Reading BASH config: $HOME/.bashrc"
 # Read files in ~/.bashrc.d
 for FILE in ~/.bashrc.d/*;
 do
-. $FILE
+    if [ ! -d "$FILE" ]; then
+        . $FILE
+    fi
 done
+
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    for FILE in ~/.bashrc.d/linux/*;
+    do
+    . $FILE
+    done
+fi
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    for FILE in ~/.bashrc.d/darwin/*;
+    do
+        if [ ! -d "$FILE" ]; then
+            . $FILE
+        fi
+    done
+
+    ARCH=$(uname -m)
+    if [[ $ARCH == 'arm64' ]]; then
+        for FILE in ~/.bashrc.d/darwin/arm64/*;
+        do
+        . $FILE
+        done
+    fi
+    if [[ $ARCH == 'x86_64' ]]; then
+        for FILE in ~/.bashrc.d/darwin/x86_64/*;
+        do
+        . $FILE
+        done
+    fi
+fi
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -62,20 +94,6 @@ if [ -f '/Users/kashif/Downloads/google-cloud-sdk/completion.bash.inc' ]; then s
 
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-    # Disable brew auto-update
-    export HOMEBREW_NO_AUTO_UPDATE=1
-
-    # Set PATH, MANPATH, etc., for Homebrew.
-    if [[ $(uname -m) == 'arm64' ]]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
-    if [[ $(uname -m) == 'x86_64' ]]; then
-        eval "$(/usr/local/bin/brew shellenv)"
-    fi
-
-    # Git completions.
-    . "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
-
     # We want to use GNU core utils when possible
     PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 fi
