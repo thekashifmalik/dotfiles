@@ -7,3 +7,7 @@ ln --force --symbolic --verbose $PWD/ssh/config ~/.ssh
 ln --force --symbolic --verbose $PWD/ssh/config.d ~/.ssh
 # TODO: Figure out if we're adding keys to this public repository.
 # ln --force --symbolic --verbose $PWD/ssh/keys ~/.ssh
+
+echo "> linking SSHD config"
+# sudo rmdir /etc/ssh/sshd_config.d || true
+sudo ln --force --symbolic --verbose $PWD/ssh/sshd_config.d /etc/ssh
