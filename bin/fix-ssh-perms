@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+chmod 755 ~/.ssh/config.d
+chmod 644 ~/.ssh/config.d/*
