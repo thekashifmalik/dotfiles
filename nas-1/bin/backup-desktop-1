@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+HOSTNAME=desktop-1
+echo "Backing up: $HOSTNAME"
+
+exec rsync -hav --delete \
+    $HOSTNAME:/mnt/HDD-3/Hidden \
+    $HOSTNAME:/mnt/HDD-3/Papers \
+    /volume1/$HOSTNAME
