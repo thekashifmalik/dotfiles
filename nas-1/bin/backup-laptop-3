@@ -5,5 +5,5 @@ HOSTNAME=laptop-3
 echo "Backing up: $HOSTNAME"
 
 exec rsync -hav --delete \
-    $HOSTNAME:~/No\ Crimson \
+    "$HOSTNAME:~/No Crimson" \
     /volume1/$HOSTNAME
