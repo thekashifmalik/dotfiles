@@ -2,6 +2,5 @@
 set -eo pipefail
 exec rsync -hav --delete -e ssh \
     ~/Logic \
-    ~/No\ Crimson \
     ~/Photography \
     $DESTINATION

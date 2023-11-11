@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+HOSTNAME=laptop-3
+echo "Backing up: $HOSTNAME"
+
+exec rsync -hav --delete \
+    $HOSTNAME:~/No\ Crimson \
+    /volume1/$HOSTNAME
