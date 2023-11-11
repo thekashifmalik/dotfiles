@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 set -eo pipefail
-rsync -hav --delete -e ssh \
-    /mnt/HDD-3/Music \
-    /mnt/HDD-3/Movies \
-    /mnt/HDD-3/Documents \
-    /mnt/HDD-3/Filmmaking \
-    /mnt/HDD-3/ISOs \
-    /mnt/HDD-3/Pictures \
-    /mnt/HDD-3/Screenplays \
-    /mnt/HDD-3/Videos \
-    $DESTINATION
 
 cd ~/whatisthebestcolor
 bin/pg_dump > db.dump

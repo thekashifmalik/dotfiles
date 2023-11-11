@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -eo pipefail
-exec rsync -hav --delete -e ssh \
-    ~/Logic \
-    ~/Photography \
-    $DESTINATION

@@ -5,6 +5,14 @@ HOSTNAME=desktop-1
 echo "Backing up: $HOSTNAME"
 
 exec rsync -hav --delete \
+    $HOSTNAME:/mnt/HDD-3/Music \
+    $HOSTNAME:/mnt/HDD-3/Movies \
+    $HOSTNAME:/mnt/HDD-3/Documents \
+    $HOSTNAME:/mnt/HDD-3/Filmmaking \
+    $HOSTNAME:/mnt/HDD-3/ISOs \
+    $HOSTNAME:/mnt/HDD-3/Pictures \
+    $HOSTNAME:/mnt/HDD-3/Screenplays \
+    $HOSTNAME:/mnt/HDD-3/Videos \
     $HOSTNAME:/mnt/HDD-3/Hidden \
     $HOSTNAME:/mnt/HDD-3/Papers \
     /volume1/$HOSTNAME
