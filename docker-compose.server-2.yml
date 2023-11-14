@@ -6,3 +6,6 @@ services:
       - "8080:80"
     volumes:
       - ./nginx/server-2:/etc/nginx/conf.d
+    logging:
+      options:
+        max-size: "100m"
