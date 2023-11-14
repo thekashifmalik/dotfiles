@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/desktop-1 ssh/config.d/desktop-1.gpg
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/laptop-2 ssh/config.d/laptop-2.gpg
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/laptop-3 ssh/config.d/laptop-3.gpg
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/server-1 ssh/config.d/server-1.gpg
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/server-2 ssh/config.d/server-2.gpg
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/nas-1 ssh/config.d/nas-1.gpg
-gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/github.com ssh/config.d/github.com.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/desktop-1 vault/ssh/config.d/desktop-1.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/laptop-2 vault/ssh/config.d/laptop-2.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/laptop-3 vault/ssh/config.d/laptop-3.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/server-1 vault/ssh/config.d/server-1.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/server-2 vault/ssh/config.d/server-2.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/nas-1 vault/ssh/config.d/nas-1.gpg
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/github.com vault/ssh/config.d/github.com.gpg
