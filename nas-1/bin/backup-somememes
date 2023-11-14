@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+echo "Backing up: somememes"
+
+ssh desktop-1 "cd ~/somememes && bin/pg_dump > db.sql"
+
+rsync -hav --delete \
+    desktop-1:~/somememes/db.sql \
+    /volume1/somememes
+
+ssh desktop-1 "cd ~/somememes && rm -v db.sql"
