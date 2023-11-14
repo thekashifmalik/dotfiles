@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/desktop-1
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/laptop-2
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/laptop-3
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/server-1
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/server-2
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/nas-1
+gpg -v --passphrase-file keys/symmetric.key --batch --yes --symmetric ssh/config.d/github.com

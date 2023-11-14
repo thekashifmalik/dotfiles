@@ -2,3 +2,4 @@
 coinbase
 Brewfile.lock.json
 docker-compose.yml
+keys/*
