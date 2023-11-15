@@ -4,8 +4,10 @@ set -eo pipefail
 HOSTNAME=laptop-3
 echo "Backing up: $HOSTNAME"
 
-exec rsync -hav --delete \
+rsync -hav --delete \
     "$HOSTNAME:~/Logic" \
     "$HOSTNAME:~/No\ Crimson" \
     "$HOSTNAME:~/Photography" \
     /volume1/$HOSTNAME
+
+rsync -hav --delete "$HOSTNAME:~/Pictures/Lightroom/Backups/" /volume1/$HOSTNAME/Lightroom
