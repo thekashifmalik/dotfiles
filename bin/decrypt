@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+mkdir -pv ssh/config.d
 gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/desktop-1 vault/ssh/config.d/desktop-1.gpg
 gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/laptop-2 vault/ssh/config.d/laptop-2.gpg
 gpg -v --passphrase-file keys/symmetric.key --batch --yes --decrypt -o ssh/config.d/laptop-3 vault/ssh/config.d/laptop-3.gpg
