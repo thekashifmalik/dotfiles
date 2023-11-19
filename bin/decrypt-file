@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eo pipefail
+
+VAULT_FILE=$1
+
+KEY=`cat keys/symmetric.hex`
+_FILE=${VAULT_FILE#vault/}
+FILE=${_FILE%.aes}
+
+mkdir -p `dirname $FILE`
+openssl/bin/decrypt-file $KEY $VAULT_FILE > $FILE

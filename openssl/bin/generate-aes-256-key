@@ -1,0 +1,4 @@
+#!/bin/bash
+set -eo pipefail
+
+openssl rand --hex 32
