@@ -3,10 +3,6 @@ set -eo pipefail
 
 KEY=$1
 
-bin/decrypt-file $KEY vault/ssh/config.d/desktop-1
-bin/decrypt-file $KEY vault/ssh/config.d/laptop-2
-bin/decrypt-file $KEY vault/ssh/config.d/laptop-3
+bin/decrypt-file $KEY vault/ssh/config
 bin/decrypt-file $KEY vault/ssh/config.d/server-1
-bin/decrypt-file $KEY vault/ssh/config.d/server-2
-bin/decrypt-file $KEY vault/ssh/config.d/nas-1
 bin/decrypt-file $KEY vault/ssh/config.d/github.com
