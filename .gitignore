@@ -3,4 +3,5 @@ coinbase
 Brewfile.lock.json
 docker-compose.yml
 keys/*
+ssh/config
 ssh/config.d/*
