@@ -5,5 +5,5 @@ KEY=$1
 FILE=$2
 
 VAULT_FILE=vault/$FILE
-mkdir -p `dirname $VAULT_FILE`
+mkdir -pv `dirname $VAULT_FILE`
 openssl/bin/encrypt-file $KEY $FILE > $VAULT_FILE
