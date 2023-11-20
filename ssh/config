@@ -1,6 +1,0 @@
-# This has to go at the top of the file
-Include config.d/*
-
-Host *
-    IdentitiesOnly yes
-    User thekashifmalik
