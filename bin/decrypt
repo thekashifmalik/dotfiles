@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+[[ -z $1 ]] && echo "No key provided" && exit 1
 KEY=$1
 
 bin/decrypt-file $KEY vault/ssh/config
