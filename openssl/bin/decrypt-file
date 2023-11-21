@@ -5,4 +5,4 @@ KEY=$1
 FILE=$2
 
 IV=`head -1 $FILE`
-tail -n +2 $FILE | openssl enc -d -v -aes256 -K $KEY -iv $IV
+tail -n +2 $FILE | openssl enc -d -v -aes-256-cbc -K $KEY -iv $IV

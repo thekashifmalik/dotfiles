@@ -6,4 +6,4 @@ FILE=$2
 
 IV=`openssl rand --hex 16`
 echo $IV
-cat $FILE | openssl enc -v -aes256 -K $KEY -iv $IV
+cat $FILE | openssl enc -v -aes-256-cbc -K $KEY -iv $IV
