@@ -1,9 +1,0 @@
-#!/bin/bash
-set -eo pipefail
-
-echo "> linking bash files"
-exec ln -sfv \
-    $PWD/bash/.bashrc \
-    $PWD/bash/.bash_profile \
-    $PWD/bash/.bashrc.d \
-    ~
