@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-ln -fsv $PWD/systemd/iperf3.service /etc/systemd/system
+if [[ "$OSTYPE" =~ ^linux ]]; then
+    ln -fsv $PWD/systemd/iperf3.service /etc/systemd/system
+fi
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    echo "Not implemented!"
+fi
