@@ -1,0 +1,6 @@
+# Make rsync:
+# - Use human readable sizes
+# - Copy file permissions and modification times
+# - Print out verbose output
+# - Delete files at the destination that don't exist at the source
+alias rsync='rsync -hav --delete'
