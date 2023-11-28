@@ -19,5 +19,5 @@ do
     TARGET=${_TARGET//.//}
 
     DESTINATION=/volume1/$TARGET
-    rsync -hav --delete $SOURCES $DESTINATION
+    rsync -havs --delete $SOURCES $DESTINATION
 done
