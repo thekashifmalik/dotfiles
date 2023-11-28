@@ -5,11 +5,11 @@ CONFIG=nas-1/backup.d
 
 for TARGET in `ls $CONFIG`
 do
-    echo "> Reading config: $CONFIG/$TARGET"
+    echo "> Reading: $CONFIG/$TARGET"
     SOURCES=""
     while read SOURCE
     do
-        echo "> Found source: $SOURCE"
+        echo "> Found: $SOURCE"
         SOURCES="$SOURCES $SOURCE"
     done < $CONFIG/$TARGET
 
