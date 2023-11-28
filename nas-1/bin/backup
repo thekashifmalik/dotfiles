@@ -14,5 +14,5 @@ do
     done < $CONFIG/$TARGET
 
     DESTINATION=/volume1/${TARGET//.//}
-    echo "> rsync -hav --delete $SOURCES $DESTINATION"
+    rsync -hav --delete $SOURCES $DESTINATION
 done
