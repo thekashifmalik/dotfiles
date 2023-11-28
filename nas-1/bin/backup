@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-CONFIG=nas-1/backup.d
+[[ -z $1 ]] && echo "No file provided" && exit 1
+FILE=$1
 
-for TARGET in `ls $CONFIG`
+echo "> Reading: $FILE"
+SOURCES=""
+while read SOURCE
 do
-    echo "> Reading: $CONFIG/$TARGET"
-    SOURCES=""
-    while read SOURCE
-    do
-        echo "> Found: $SOURCE"
-        SOURCES="$SOURCES $SOURCE"
-    done < $CONFIG/$TARGET
+    echo "> Found: $SOURCE"
+    SOURCES="$SOURCES $SOURCE"
+done < $FILE
 
-    DESTINATION=/volume1/${TARGET//.//}
-    rsync -hav --delete $SOURCES $DESTINATION
-done
+_TARGET=`basename $FILE`
+TARGET=${_TARGET//.//}
+
+DESTINATION=/volume1/$TARGET
+echo "rsync -hav --delete $SOURCES $DESTINATION"
