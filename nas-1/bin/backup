@@ -12,7 +12,7 @@ do
     while read SOURCE
     do
         echo "> Found: $SOURCE"
-        SOURCES="$SOURCES '$SOURCE'"
+        SOURCES="$SOURCES $SOURCE"
     done < $FILE
 
     _TARGET=`basename $FILE`
