@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+CONFIG=nas-1/backup.d
+
+for TARGET in `ls $CONFIG`
+do
+    echo "> Reading config: $CONFIG/$TARGET"
+    SOURCES=""
+    while read SOURCE
+    do
+        echo "> Found source: $SOURCE"
+        SOURCES="$SOURCES $SOURCE"
+    done < $CONFIG/$TARGET
+
+    DESTINATION=/volume1/${TARGET//.//}
+    echo "> rsync -hav --delete $SOURCES $DESTINATION"
+done
