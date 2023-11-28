@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-[[ -z $1 ]] && echo "No file provided" && exit 1
-FILE=$1
+[[ -z "$@" ]] && echo "No files provided" && exit 1
+FILES="$@"
 
-echo "> Reading: $FILE"
-SOURCES=""
-while read SOURCE
+
+for FILE in $FILES
 do
-    echo "> Found: $SOURCE"
-    SOURCES="$SOURCES $SOURCE"
-done < $FILE
+    echo "> Reading: $FILE"
+    SOURCES=""
+    while read SOURCE
+    do
+        echo "> Found: $SOURCE"
+        SOURCES="$SOURCES $SOURCE"
+    done < $FILE
 
-_TARGET=`basename $FILE`
-TARGET=${_TARGET//.//}
+    _TARGET=`basename $FILE`
+    TARGET=${_TARGET//.//}
 
-DESTINATION=/volume1/$TARGET
-echo "rsync -hav --delete $SOURCES $DESTINATION"
+    DESTINATION=/volume1/$TARGET
+    rsync -hav --delete $SOURCES $DESTINATION
+done
