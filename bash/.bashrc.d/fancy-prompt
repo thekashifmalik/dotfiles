@@ -88,7 +88,6 @@ prompt_cmd () {
         fi
     fi
 
-    PSL+="%${COLUMNS}s\n${COLOR_5_1} [DIRTY] ${COLOR_RESET}"
     PS1="${PSL}\n▶ "
 }
 export PROMPT_COMMAND='prompt_cmd'
