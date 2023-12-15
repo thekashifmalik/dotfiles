@@ -8,7 +8,12 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     brew update
     echo "> bundling brew"
     brew bundle
-    sudo ln --force --symbolic --verbose $PWD/bash/shells /etc/shells
+    # Change shell to bash
+    sudo ln -fsv $PWD/bash/shells /etc/shells
+    ARCH=$(uname -m)
+    if [[ $ARCH == 'arm64' ]]; then
+        /opt/homebrew/opt/fzf/install --no-zsh --key-bindings --completion --no-update-rc
+    fi
 fi
 
 # Linux
