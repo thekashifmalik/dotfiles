@@ -1,4 +1,6 @@
 #!/bin/bash
 set -eo pipefail
 
-openssl rand --hex 32
+BITS=256
+BYTES=`python -c "print($BITS // 8)"`
+openssl/bin/generate-random-bytes $BYTES
