@@ -6,7 +6,7 @@ HOST=server-1
 
 echo "Backing up: $TARGET"
 
-ssh $HOST "cd ~/$NAME && bin/pg_dump > db.dump"
+ssh $HOST "cd ~/$TARGET && bin/pg_dump > db.dump"
 
 rsync -hav --delete \
     $HOST:~/$TARGET/db.dump \
@@ -14,4 +14,4 @@ rsync -hav --delete \
     $HOST:~/$TARGET/var/nginx/error.log \
     /volume1/$TARGET
 
-ssh $HOST "cd ~/$TARGET && rm -v db.dump"
+ssh $HOST "rm -v $TARGET/db.dump"
