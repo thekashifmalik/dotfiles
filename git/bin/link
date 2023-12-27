@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eo pipefail
+
+if type stow &> /dev/null
+then
+    stow -v -R git
+else
+    ln -fsv $PWD/git/.gitconfig ~
+fi

@@ -60,9 +60,10 @@ fi
 echo "> linking config files"
 stow -v -R \
     bash \
-    git \
     tmux \
     nvim
+
+git/bin/link
 
 # Install Tmux Plugin Manager
 if [ -e ~/.tmux/plugins/tpm ]; then
