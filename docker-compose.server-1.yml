@@ -8,7 +8,10 @@ services:
       - ./nginx/server-1:/etc/nginx/conf.d
     networks:
       - nocrimson_default
+      - whatisthebestcolor_default
 
 networks:
   nocrimson_default:
+    external: true
+  whatisthebestcolor_default:
     external: true
