@@ -5,9 +5,11 @@ HOST=laptop-3
 echo "Backing up: $HOST"
 
 rsync -hav --delete \
-    "$HOST:~/Logic" \
-    "$HOST:~/No\ Crimson" \
-    "$HOST:~/Photography" \
+    $HOST:Logic \
+    $HOST:"No\ Crimson" \
+    $HOST:Photography \
     /volume1/$HOST
 
-rsync -hav --delete "$HOST:~/Pictures/Lightroom/Backups/" /volume1/$HOST/Lightroom
+rsync -hav --delete \
+    $HOST:Pictures/Lightroom/Backups/ \
+    /volume1/$HOST/Lightroom
