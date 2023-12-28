@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-HOSTNAME=laptop-3
-echo "Backing up: $HOSTNAME"
-
-echo "Backing up: $HOSTNAME files"
+HOST=laptop-3
+echo "Backing up: $HOST"
 
 rsync -hav --delete \
-    "$HOSTNAME:~/Logic" \
-    "$HOSTNAME:~/No\ Crimson" \
-    "$HOSTNAME:~/Photography" \
-    /volume1/$HOSTNAME
+    "$HOST:~/Logic" \
+    "$HOST:~/No\ Crimson" \
+    "$HOST:~/Photography" \
+    /volume1/$HOST
 
-echo "Backing up: $HOSTNAME Lightroom"
-
-rsync -hav --delete "$HOSTNAME:~/Pictures/Lightroom/Backups/" /volume1/$HOSTNAME/Lightroom
+rsync -hav --delete "$HOST:~/Pictures/Lightroom/Backups/" /volume1/$HOST/Lightroom

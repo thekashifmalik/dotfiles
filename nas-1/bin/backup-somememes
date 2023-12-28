@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-echo "Backing up: somememes"
+TARGET=somememes
+HOST=desktop-1
 
-time ssh desktop-1 "cd ~/somememes && bin/pg_dump > db.sql"
+echo "Backing up: $TARGET @ $HOST"
 
-time rsync -hav --delete \
-    desktop-1:~/somememes/db.sql \
-    desktop-1:/mnt/HDD-3/somememes/media \
-    /volume1/somememes
+echo "Dumping DB"
+ssh $HOST "cd $TARGET && bin/pg_dump > db.sql"
 
-ssh desktop-1 "cd ~/somememes && rm -v db.sql"
+rsync -hav --delete \
+    $HOST:$TARGET/db.sql \
+    $HOST:/mnt/HDD-3/$TARGET/media \
+    /volume1/$TARGET
+
+ssh $HOST "rm -v $TARGET/db.sql"

@@ -4,14 +4,15 @@ set -eo pipefail
 TARGET=whatisthebestcolor
 HOST=server-1
 
-echo "Backing up: $TARGET"
+echo "Backing up: $TARGET @ $HOST"
 
-ssh $HOST "cd ~/$TARGET && bin/pg_dump > db.dump"
+echo "Dumping DB"
+ssh $HOST "cd $TARGET && bin/pg_dump > db.dump"
 
 rsync -hav --delete \
-    $HOST:~/$TARGET/db.dump \
-    $HOST:~/$TARGET/var/nginx/access.log \
-    $HOST:~/$TARGET/var/nginx/error.log \
+    $HOST:$TARGET/db.dump \
+    $HOST:$TARGET/var/nginx/access.log \
+    $HOST:$TARGET/var/nginx/error.log \
     /volume1/$TARGET
 
 ssh $HOST "rm -v $TARGET/db.dump"
