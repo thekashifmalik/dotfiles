@@ -6,3 +6,4 @@ keys/*
 ssh/config
 ssh/config.d/*
 var/
+/fstab
