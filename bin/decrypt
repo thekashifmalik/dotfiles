@@ -5,10 +5,5 @@ set -eo pipefail
 KEY=$1
 
 bin/decrypt-file $KEY vault/ssh/config
-bin/decrypt-file $KEY vault/ssh/config.d/server-1
-bin/decrypt-file $KEY vault/ssh/config.d/github.com
-
-bin/decrypt-file $KEY vault/fstab/desktop-1/HDD-3
-bin/decrypt-file $KEY vault/fstab/desktop-1/SSD-1
-bin/decrypt-file $KEY vault/fstab/desktop-1/SSD-2
-bin/decrypt-file $KEY vault/fstab/nas-1/HDD-4
+bin/decrypt-file $KEY vault/ssh/config.d
+bin/decrypt-file $KEY vault/fstab

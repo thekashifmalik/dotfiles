@@ -5,10 +5,5 @@ set -eo pipefail
 KEY=$1
 
 bin/encrypt-file $KEY ssh/config
-bin/encrypt-file $KEY ssh/config.d/server-1
-bin/encrypt-file $KEY ssh/config.d/github.com
-
-bin/encrypt-file $KEY fstab/desktop-1/HDD-3
-bin/encrypt-file $KEY fstab/desktop-1/SSD-1
-bin/encrypt-file $KEY fstab/desktop-1/SSD-2
-bin/encrypt-file $KEY fstab/nas-1/HDD-4
+bin/encrypt-file $KEY ssh/config.d
+bin/encrypt-file $KEY fstab
