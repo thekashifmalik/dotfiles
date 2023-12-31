@@ -4,6 +4,6 @@ set -eo pipefail
 [[ -z $1 ]] && echo "No key provided" && exit 1
 KEY=$1
 
-bin/decrypt-file $KEY vault/ssh/config
-bin/decrypt-file $KEY vault/ssh/config.d
-bin/decrypt-file $KEY vault/fstab
+encryption/bin/decrypt $KEY vault/ssh/config
+encryption/bin/decrypt $KEY vault/ssh/config.d
+encryption/bin/decrypt $KEY vault/fstab

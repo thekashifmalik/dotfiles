@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eo pipefail
+
+[[ -z $1 ]] && echo "No key provided" && exit 1
+KEY=$1
+[[ -z $2 ]] && echo "No file provided" && exit 1
+FILE=$2
+
+VAULT=vault/$FILE
+mkdir -pv `dirname $VAULT`
+
+tar -cv $FILE | openssl/bin/encrypt $KEY > $VAULT
+echo "> encrypted '$FILE' -> '$VAULT'"

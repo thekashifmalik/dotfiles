@@ -1,6 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
+[[ -z $1 ]] && echo "No key provided" && exit 1
 KEY=$1
 
 IV=`openssl rand --hex 16`

@@ -1,7 +1,0 @@
-#!/bin/bash
-set -eo pipefail
-
-KEY=$1
-FILE=$2
-
-cat $FILE | openssl/bin/encrypt $KEY
