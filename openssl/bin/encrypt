@@ -1,0 +1,8 @@
+#!/bin/bash
+set -eo pipefail
+
+KEY=$1
+
+IV=`openssl rand --hex 16`
+echo -n $IV
+cat - | openssl enc -v -aes-256-cbc -K $KEY -iv $IV

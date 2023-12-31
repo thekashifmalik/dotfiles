@@ -4,6 +4,4 @@ set -eo pipefail
 KEY=$1
 FILE=$2
 
-IV=`openssl rand --hex 16`
-echo $IV
-cat $FILE | openssl enc -v -aes-256-cbc -K $KEY -iv $IV
+cat $FILE | openssl/bin/encrypt $KEY
