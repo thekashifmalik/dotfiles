@@ -9,12 +9,5 @@ FILE=$2
 VAULT_FILE=vault/$FILE
 mkdir -pv `dirname $VAULT_FILE`
 
-ARCHIVE_FILE=tmp/$FILE.tar
-mkdir -pv `dirname $ARCHIVE_FILE`
-tar -cvf $ARCHIVE_FILE $FILE
-echo "archived '$FILE' -> '$ARCHIVE_FILE'"
-
-openssl/bin/encrypt-file $KEY $ARCHIVE_FILE > $VAULT_FILE
-echo "encrypted '$ARCHIVE_FILE' -> '$VAULT_FILE'"
-
-rm -v $ARCHIVE_FILE
+tar -cv $FILE | openssl/bin/encrypt $KEY > $VAULT_FILE
+echo "encrypted '$FILE' -> '$VAULT_FILE'"
