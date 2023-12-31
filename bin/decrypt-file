@@ -8,4 +8,12 @@ VAULT_FILE=$2
 
 FILE=${VAULT_FILE#vault/}
 mkdir -pv `dirname $FILE`
-openssl/bin/decrypt-file $KEY $VAULT_FILE > $FILE
+
+ARCHIVE_FILE=tmp/$FILE.tar
+openssl/bin/decrypt-file $KEY $VAULT_FILE > $ARCHIVE_FILE
+echo "decrypted '$VAULT_FILE' -> '$ARCHIVE_FILE'"
+
+tar -xvf $ARCHIVE_FILE
+echo extracted \'$ARCHIVE_FILE\'
+
+rm -v $ARCHIVE_FILE
