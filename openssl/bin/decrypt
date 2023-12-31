@@ -4,4 +4,4 @@ set -eo pipefail
 KEY=$1
 
 IV=`head -c 32 -`
-cat - | openssl enc -d -v -aes-256-cbc -K $KEY -iv $IV
+cat - | openssl enc -d -aes-256-cbc -K $KEY -iv $IV

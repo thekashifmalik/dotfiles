@@ -10,4 +10,4 @@ FILE=${VAULT_FILE#vault/}
 mkdir -pv `dirname $FILE`
 
 cat $VAULT_FILE | openssl/bin/decrypt $KEY | tar -xv
-echo "decrypted '$VAULT_FILE' -> '$FILE'"
+echo "> decrypted '$VAULT_FILE' -> '$FILE'"
