@@ -1,0 +1,2 @@
+alias grep="grep -i"
+alias grepc="grep --color=always"
