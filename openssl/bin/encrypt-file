@@ -1,11 +1,9 @@
 #!/bin/bash
 set -eo pipefail
 
-[[ -z $1 ]] && echo "No key provided" && exit 1
 KEY=$1
-[[ -z $2 ]] && echo "No file provided" && exit 1
 FILE=$2
 
-IV=`openssl/bin/generate-random-bytes 16`
+IV=`openssl rand --hex 16`
 echo $IV
 cat $FILE | openssl enc -v -aes-256-cbc -K $KEY -iv $IV

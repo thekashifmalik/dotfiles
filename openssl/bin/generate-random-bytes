@@ -1,7 +1,0 @@
-#!/bin/bash
-set -eo pipefail
-
-[[ -z $1 ]] && echo "BYTES not specified" && exit 1
-BYTES=$1
-
-openssl rand -hex $BYTES
