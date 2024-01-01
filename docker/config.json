@@ -1,0 +1,13 @@
+{
+  "auths": {
+    "https://index.docker.io/v1/": {}
+  },
+  "credHelpers": {
+    "564673040929.dkr.ecr.us-east-1.amazonaws.com": "assume-role-ecr-helper",
+    "652969937640.dkr.ecr.us-east-1.amazonaws.com": "assume-role-ecr-helper"
+  },
+  "credsStore": "desktop",
+  "detachKeys": "ctrl-q,q",
+  "experimental": "disabled",
+  "stackOrchestrator": "swarm"
+}
