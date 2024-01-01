@@ -4,6 +4,6 @@ set -eo pipefail
 [[ -z $1 ]] && echo "No key provided" && exit 1
 KEY=$1
 
-bin/encrypt-file $KEY ssh/config
-bin/encrypt-file $KEY ssh/config.d/server-1
-bin/encrypt-file $KEY ssh/config.d/github.com
+encryption/bin/encrypt $KEY ssh/config
+encryption/bin/encrypt $KEY ssh/config.d
+encryption/bin/encrypt $KEY fstab

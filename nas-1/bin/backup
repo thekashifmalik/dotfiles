@@ -8,16 +8,17 @@ FILES="$@"
 for FILE in $FILES
 do
     echo "> Reading: $FILE"
-    SOURCES=""
+    SOURCES=()
     while read SOURCE
     do
         echo "> Found: $SOURCE"
-        SOURCES="$SOURCES $SOURCE"
+        SOURCES+=($SOURCE)
     done < $FILE
 
     _TARGET=`basename $FILE`
+    # We convert any periods in the name to slashes. This is done to support renaming folders within shared volumes.
     TARGET=${_TARGET//.//}
 
     DESTINATION=/volume1/$TARGET
-    rsync -hav --delete $SOURCES $DESTINATION
+    eval rsync -hav --delete ${SOURCES[@]} $DESTINATION
 done

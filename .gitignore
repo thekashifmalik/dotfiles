@@ -5,3 +5,6 @@ docker-compose.yml
 keys/*
 ssh/config
 ssh/config.d/*
+var/
+/fstab
+/tmp

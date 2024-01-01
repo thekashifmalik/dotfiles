@@ -6,6 +6,8 @@ KEY=$1
 [[ -z $2 ]] && echo "No file provided" && exit 1
 FILE=$2
 
-VAULT_FILE=vault/$FILE
-mkdir -pv `dirname $VAULT_FILE`
-openssl/bin/encrypt-file $KEY $FILE > $VAULT_FILE
+VAULT=vault/$FILE
+mkdir -pv `dirname $VAULT`
+
+tar -cv $FILE | openssl/bin/encrypt $KEY > $VAULT
+echo "> encrypted '$FILE' -> '$VAULT'"

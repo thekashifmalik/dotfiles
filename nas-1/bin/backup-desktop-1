@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-HOSTNAME=desktop-1
-echo "Backing up: $HOSTNAME"
+HOST=desktop-1
+echo "Backing up: $HOST"
 
 exec rsync -hav --delete \
-    $HOSTNAME:/mnt/HDD-3/Music \
-    $HOSTNAME:/mnt/HDD-3/Movies \
-    $HOSTNAME:/mnt/HDD-3/Documents \
-    $HOSTNAME:/mnt/HDD-3/Filmmaking \
-    $HOSTNAME:/mnt/HDD-3/ISOs \
-    $HOSTNAME:/mnt/HDD-3/Pictures \
-    $HOSTNAME:/mnt/HDD-3/Screenplays \
-    $HOSTNAME:/mnt/HDD-3/Videos \
-    $HOSTNAME:/mnt/HDD-3/Hidden \
-    $HOSTNAME:/mnt/HDD-3/Papers \
-    /volume1/$HOSTNAME
+    $HOST:/mnt/HDD-3/Music \
+    $HOST:/mnt/HDD-3/Movies \
+    $HOST:/mnt/HDD-3/Documents \
+    $HOST:/mnt/HDD-3/Filmmaking \
+    $HOST:/mnt/HDD-3/ISOs \
+    $HOST:/mnt/HDD-3/Pictures \
+    $HOST:/mnt/HDD-3/Screenplays \
+    $HOST:/mnt/HDD-3/Videos \
+    $HOST:/mnt/HDD-3/Hidden \
+    $HOST:/mnt/HDD-3/Papers \
+    /volume1/$HOST

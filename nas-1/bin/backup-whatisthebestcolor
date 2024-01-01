@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-echo "Backing up: whatisthebestcolor"
+TARGET=whatisthebestcolor
+HOST=server-1
 
-ssh desktop-1 "cd ~/whatisthebestcolor && bin/pg_dump > db.dump"
+echo "Backing up: $TARGET @ $HOST"
+
+echo "Dumping DB"
+ssh $HOST "cd $TARGET && bin/pg_dump > db.dump"
 
 rsync -hav --delete \
-    desktop-1:~/whatisthebestcolor/db.dump \
-    desktop-1:~/whatisthebestcolor/var/nginx/access.log \
-    desktop-1:~/whatisthebestcolor/var/nginx/error.log \
-    /volume1/whatisthebestcolor
+    $HOST:$TARGET/db.dump \
+    $HOST:$TARGET/var/nginx/access.log \
+    $HOST:$TARGET/var/nginx/error.log \
+    /volume1/$TARGET
 
-ssh desktop-1 "cd ~/whatisthebestcolor && rm -v db.dump"
+ssh $HOST "rm -v $TARGET/db.dump"

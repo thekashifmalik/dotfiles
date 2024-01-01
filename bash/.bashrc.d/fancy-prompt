@@ -13,7 +13,7 @@ COLOR_FG_BLACK="\[\e[38;5;232m\]"
 # Fancy prompt.
 prompt_cmd () {
     PSL="${COLOR_1}${COLOR_FG_BLACK}  BASH  ${COLOR_RESET}"
-    PSL+="${COLOR_2}${COLOR_FG_BLACK} \u ${COLOR_RESET}"
+    PSL+="${COLOR_2}${COLOR_FG_BLACK} \u: ${COLOR_RESET}"
     PSL+="${COLOR_3}${COLOR_FG_BLACK} @\h ${COLOR_RESET}"
     PSL+="${COLOR_4}${COLOR_FG_BLACK} \w ${COLOR_RESET}"
 
