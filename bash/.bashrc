@@ -22,26 +22,21 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 fi
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
+    # Set up brew shell environment
+    ARCH=$(uname -m)
+    if [[ $ARCH == 'arm64' ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+    if [[ $ARCH == 'x86_64' ]]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
+
     for FILE in ~/.bashrc.d/darwin/*;
     do
         if [ ! -d "$FILE" ]; then
             . $FILE
         fi
     done
-
-    ARCH=$(uname -m)
-    if [[ $ARCH == 'arm64' ]]; then
-        for FILE in ~/.bashrc.d/darwin/arm64/*;
-        do
-        . $FILE
-        done
-    fi
-    if [[ $ARCH == 'x86_64' ]]; then
-        for FILE in ~/.bashrc.d/darwin/x86_64/*;
-        do
-        . $FILE
-        done
-    fi
 fi
 
 # check the window size after each command and, if necessary,
