@@ -39,5 +39,6 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "workbench.editor.wrapTabs": true,
-    "git.inputValidation": "off"
+    "git.inputValidation": "off",
+    "search.useIgnoreFiles": false
 }
