@@ -7,3 +7,4 @@ KEY=$1
 encryption/bin/encrypt $KEY ssh/config
 encryption/bin/encrypt $KEY ssh/config.d
 encryption/bin/encrypt $KEY fstab
+encryption/bin/encrypt $KEY coinbase

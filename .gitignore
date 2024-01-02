@@ -1,5 +1,5 @@
 .DS_Store
-coinbase
+/coinbase
 Brewfile.lock.json
 docker-compose.yml
 keys/*
