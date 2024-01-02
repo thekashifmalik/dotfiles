@@ -7,3 +7,4 @@ KEY=$1
 encryption/bin/decrypt $KEY vault/ssh/config
 encryption/bin/decrypt $KEY vault/ssh/config.d
 encryption/bin/decrypt $KEY vault/fstab
+encryption/bin/decrypt $KEY vault/coinbase

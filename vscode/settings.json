@@ -38,5 +38,6 @@
     "git.enableSmartCommit": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "workbench.editor.wrapTabs": true
+    "workbench.editor.wrapTabs": true,
+    "git.inputValidation": "off"
 }
