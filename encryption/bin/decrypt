@@ -9,5 +9,5 @@ INPUT=$2
 OUTPUT=$3
 
 mkdir -pv `dirname $OUTPUT`
-cat $INPUT | openssl/bin/decrypt $KEY | tar/bin/extract $OUTPUT
+openssl/bin/decrypt $KEY < $INPUT | tar/bin/extract $OUTPUT
 echo "> decrypted '$INPUT' -> '$OUTPUT'"
