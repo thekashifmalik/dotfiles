@@ -10,3 +10,4 @@ encryption/bin/encrypt $KEY coinbase
 encryption/bin/encrypt $KEY nginx
 encryption/bin/encrypt $KEY docker-compose.server-1.yml
 encryption/bin/encrypt $KEY docker-compose.server-2.yml
+encryption/bin/encrypt $KEY nas-1
