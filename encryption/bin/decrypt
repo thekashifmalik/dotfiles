@@ -9,5 +9,5 @@ VAULT=$2
 FILE=${VAULT#vault/}
 mkdir -pv `dirname $FILE`
 
-cat $VAULT | openssl/bin/decrypt $KEY | tar -xv -C `dirname $FILE`
+cat $VAULT | openssl/bin/decrypt $KEY | tar/bin/extract $FILE
 echo "> decrypted '$VAULT' -> '$FILE'"
