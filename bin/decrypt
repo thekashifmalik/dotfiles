@@ -7,3 +7,6 @@ encryption/bin/decrypt $KEY vault/ssh/config
 encryption/bin/decrypt $KEY vault/ssh/config.d
 encryption/bin/decrypt $KEY vault/fstab
 encryption/bin/decrypt $KEY vault/coinbase
+encryption/bin/decrypt $KEY vault/nginx
+encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml
+encryption/bin/decrypt $KEY vault/docker-compose.server-2.yml

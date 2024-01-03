@@ -7,3 +7,6 @@ encryption/bin/encrypt $KEY ssh/config
 encryption/bin/encrypt $KEY ssh/config.d
 encryption/bin/encrypt $KEY fstab
 encryption/bin/encrypt $KEY coinbase
+encryption/bin/encrypt $KEY nginx
+encryption/bin/encrypt $KEY docker-compose.server-1.yml
+encryption/bin/encrypt $KEY docker-compose.server-2.yml
