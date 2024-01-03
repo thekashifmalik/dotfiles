@@ -9,5 +9,5 @@ FILE=$2
 VAULT=vault/$FILE
 mkdir -pv `dirname $VAULT`
 
-tar -cv $FILE | openssl/bin/encrypt $KEY > $VAULT
+tar -cv -C `dirname $FILE` `basename $FILE` | openssl/bin/encrypt $KEY > $VAULT
 echo "> encrypted '$FILE' -> '$VAULT'"
