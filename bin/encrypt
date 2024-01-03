@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-[[ -z $1 ]] && echo "No key provided" && exit 1
-KEY=$1
+KEY=`cat keys/aes256.hex`
 
 encryption/bin/encrypt $KEY ssh/config
 encryption/bin/encrypt $KEY ssh/config.d
