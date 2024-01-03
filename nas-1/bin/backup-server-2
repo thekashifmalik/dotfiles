@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -eo pipefail
-
-HOST=server-2
-echo "Backing up: $HOST"
-
-exec rsync -hav --delete \
-    $HOST:dotfiles/var/nginx \
-    /volume1/$HOST
