@@ -3,11 +3,11 @@ set -eo pipefail
 
 KEY=`cat keys/aes256.hex`
 
-encryption/bin/decrypt $KEY vault/ssh/config
-encryption/bin/decrypt $KEY vault/ssh/config.d
-encryption/bin/decrypt $KEY vault/fstab
-encryption/bin/decrypt $KEY vault/coinbase
-encryption/bin/decrypt $KEY vault/nginx
-encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml
-encryption/bin/decrypt $KEY vault/docker-compose.server-2.yml
-encryption/bin/decrypt $KEY vault/nas-1
+encryption/bin/decrypt $KEY vault/ssh/config ssh/config
+encryption/bin/decrypt $KEY vault/ssh/config.d ssh/config.d
+encryption/bin/decrypt $KEY vault/fstab fstab
+encryption/bin/decrypt $KEY vault/coinbase coinbase
+encryption/bin/decrypt $KEY vault/nginx nginx
+encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml docker-compose.server-1.yml
+encryption/bin/decrypt $KEY vault/docker-compose.server-2.yml docker-compose.server-2.yml
+encryption/bin/decrypt $KEY vault/nas-1 nas-1

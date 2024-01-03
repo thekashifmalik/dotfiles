@@ -3,11 +3,11 @@ set -eo pipefail
 
 [[ -z $1 ]] && echo "No key provided" && exit 1
 KEY=$1
-[[ -z $2 ]] && echo "No file provided" && exit 1
-VAULT=$2
+[[ -z $2 ]] && echo "No input file provided" && exit 1
+INPUT=$2
+[[ -z $3 ]] && echo "No output file provided" && exit 1
+OUTPUT=$3
 
-FILE=${VAULT#vault/}
-mkdir -pv `dirname $FILE`
-
-cat $VAULT | openssl/bin/decrypt $KEY | tar/bin/extract $FILE
-echo "> decrypted '$VAULT' -> '$FILE'"
+mkdir -pv `dirname $OUTPUT`
+cat $INPUT | openssl/bin/decrypt $KEY | tar/bin/extract $OUTPUT
+echo "> decrypted '$INPUT' -> '$OUTPUT'"
