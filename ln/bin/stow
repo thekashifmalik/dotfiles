@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eo pipefail
+
+[[ -z $1 ]] && echo "No file provided" && exit 1
+INPUT=$1
+
+if [[ -e $INPUT/.stow-local-ignore ]]
+then
+    IGNORE=`cat $INPUT/.stow-local-ignore`
+    FILES=`ls -A $INPUT | grep -v "$IGNORE" | grep -v .stow | sed "s/^/dotfiles\/$INPUT\//"`
+else
+    FILES=`ls -A $INPUT | sed "s/^/dotfiles\/$INPUT\//"`
+fi
+ln -fsv $FILES ~

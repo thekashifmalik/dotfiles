@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eo pipefail
+
+[[ -z $1 ]] && echo "No file provided" && exit 1
+INPUT=$1
+
+if type stow &> /dev/null
+then
+    stow -v -R $INPUT
+else
+    ln/bin/stow $INPUT
+fi

@@ -1,11 +1,4 @@
 #!/bin/bash
 set -eo pipefail
 
-if type stow &> /dev/null
-then
-    stow -v -R bash
-else
-    ln -fsv $PWD/bash/.bash_profile ~
-    ln -fsv $PWD/bash/.bashrc ~
-    ln -fsv $PWD/bash/.bashrc.d ~
-fi
+stow/bin/stow bash
