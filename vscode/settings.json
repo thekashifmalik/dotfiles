@@ -1,6 +1,5 @@
 {
-    "workbench.colorTheme": "Monokai Classic",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-icons",
     "workbench.editor.labelFormat": "medium",
     "window.title": "${dirty}${rootName}${separator}${activeEditorMedium}${separator}${appName}",
     "extensions.ignoreRecommendations": false,
@@ -40,5 +39,6 @@
     "explorer.confirmDelete": false,
     "workbench.editor.wrapTabs": true,
     "git.inputValidation": "off",
-    "search.useIgnoreFiles": false
+    "search.useIgnoreFiles": false,
+    "workbench.colorTheme": "Monokai"
 }
