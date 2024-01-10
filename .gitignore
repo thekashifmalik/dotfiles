@@ -12,3 +12,4 @@ var/
 /nginx
 /nas-1
 /certificates
+cloudflare-credentials.ini
