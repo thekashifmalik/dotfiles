@@ -12,3 +12,6 @@ encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml docker-compose.ser
 encryption/bin/decrypt $KEY vault/docker-compose.server-2.yml docker-compose.server-2.yml
 encryption/bin/decrypt $KEY vault/nas-1 nas-1
 encryption/bin/decrypt $KEY vault/certificates certificates
+
+# For some reason the SSH config permissions are messed up on some hosts.
+chmod -v 600 ssh/config
