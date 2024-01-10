@@ -11,6 +11,7 @@ brew "docker", link: false
 brew "docker-compose"
 brew "fzf"
 brew "git"
+brew "gnu-tar"
 brew "gnupg"
 brew "go"
 brew "htop"

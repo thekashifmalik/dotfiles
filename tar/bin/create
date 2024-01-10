@@ -4,4 +4,4 @@ set -eo pipefail
 [[ -z $1 ]] && echo "No file provided" && exit 1
 FILE=$1
 
-tar -cv -C `dirname $FILE` `basename $FILE`
+tar/bin/tar -cv -C `dirname $FILE` `basename $FILE`

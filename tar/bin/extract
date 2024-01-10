@@ -4,4 +4,4 @@ set -eo pipefail
 [[ -z $1 ]] && echo "No file provided" && exit 1
 FILE=$1
 
-tar -xv -C `dirname $FILE` --transform 's!^[^/]\+\($\|/\)!'"`basename $FILE`"'\1!'
+tar/bin/tar -xv -C `dirname $FILE` --transform 's!^[^/]\+\($\|/\)!'"`basename $FILE`"'\1!'
