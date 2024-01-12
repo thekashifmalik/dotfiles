@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+[[ -z "$@" ]] && echo "No files provided" && exit 1
+FILES="$@"
+
+
+for FILE in $FILES
+do
+    echo "> Reading: $FILE"
+    SOURCES=()
+    while read SOURCE
+    do
+        echo "> Found: $SOURCE"
+        SOURCES+=($SOURCE)
+    done < $FILE
+
+    _TARGET=`basename $FILE`
+    # We convert any periods in the name to slashes. This is done to support renaming folders within shared volumes.
+    TARGET=${_TARGET//.//}
+
+    DESTINATION=/volume1/$TARGET
+    eval rsync -hav --delete ${SOURCES[@]} $DESTINATION
+done
