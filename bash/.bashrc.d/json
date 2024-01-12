@@ -1,0 +1,5 @@
+# This is a prototype; it does not support more than 1 argument. Need to build actual tool since I can't find anything
+# close to what I need.
+json () {
+    echo $@ | jc --ini
+}
