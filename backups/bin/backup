@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-[[ -z "$@" ]] && echo "No files provided" && exit 1
-FILES="$@"
+[[ -z "${@}" ]] && echo "No files provided" && exit 1
+FILES="${@:1:$#-1}"
+[[ -z $FILES ]] && echo "No destination provided" && exit 1
+DESTINATION="${@: -1}"
 
 
 for FILE in $FILES
@@ -19,6 +21,5 @@ do
     # We convert any periods in the name to slashes. This is done to support renaming folders within shared volumes.
     TARGET=${_TARGET//.//}
 
-    DESTINATION=/volume1/$TARGET
-    eval rsync -hav --delete ${SOURCES[@]} $DESTINATION
+    eval rsync -hav --delete ${SOURCES[@]} $DESTINATION/$TARGET
 done
