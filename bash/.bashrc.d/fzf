@@ -1,3 +1,10 @@
 # FZF completions.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# TODO: Consider vendoring ~/.fzf.bash
+# Linux installs don't install ~/.fzf.bash so we have to manually source these files.
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+[ -f /usr/share/doc/fzf/examples/completion.bash ] && source /usr/share/doc/fzf/examples/completion.bash
+
+# Default command that's run when no input is passed
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
