@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-set -eo pipefail
-cat /etc/pihole/dhcp.leases | cut -d ' ' -f4 | grep -E '\-[0-9]{1,4}'

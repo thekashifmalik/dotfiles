@@ -12,3 +12,4 @@ encryption/bin/encrypt $KEY docker-compose.server-1.yml vault/docker-compose.ser
 encryption/bin/encrypt $KEY docker-compose.server-2.yml vault/docker-compose.server-2.yml
 encryption/bin/encrypt $KEY nas-1 vault/nas-1
 encryption/bin/encrypt $KEY certificates vault/certificates
+encryption/bin/encrypt $KEY server-2 vault/server-2
