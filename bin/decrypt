@@ -3,16 +3,24 @@ set -eo pipefail
 
 KEY=`cat keys/aes256.hex`
 
-encryption/bin/decrypt $KEY vault/ssh/config ssh/config
-encryption/bin/decrypt $KEY vault/ssh/config.d ssh/config.d
-encryption/bin/decrypt $KEY vault/fstab fstab
-encryption/bin/decrypt $KEY vault/coinbase coinbase
-encryption/bin/decrypt $KEY vault/nginx nginx
-encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml docker-compose.server-1.yml
-encryption/bin/decrypt $KEY vault/docker-compose.server-2.yml docker-compose.server-2.yml
-encryption/bin/decrypt $KEY vault/nas-1 nas-1
-encryption/bin/decrypt $KEY vault/certificates certificates
-encryption/bin/decrypt $KEY vault/server-2 server-2
+if [[ $@ ]]
+then
+    for ARG in "$@"
+    do
+        encryption/bin/decrypt $KEY $ARG ${ARG#vault/}
+    done
+else
+    encryption/bin/decrypt $KEY vault/ssh/config ssh/config
+    encryption/bin/decrypt $KEY vault/ssh/config.d ssh/config.d
+    encryption/bin/decrypt $KEY vault/fstab fstab
+    encryption/bin/decrypt $KEY vault/coinbase coinbase
+    encryption/bin/decrypt $KEY vault/nginx nginx
+    encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml docker-compose.server-1.yml
+    encryption/bin/decrypt $KEY vault/docker-compose.server-2.yml docker-compose.server-2.yml
+    encryption/bin/decrypt $KEY vault/nas-1 nas-1
+    encryption/bin/decrypt $KEY vault/certificates certificates
+    encryption/bin/decrypt $KEY vault/server-2 server-2
+fi
 
 # For some reason the SSH config permissions are messed up on some hosts.
 chmod -v 600 ssh/config
