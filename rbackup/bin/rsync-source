@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+[[ -z $1 ]] && echo "No source provided" && exit 1
+[[ -z $2 ]] && echo "No destination provided" && exit 1
+
+SOURCE=$1
+DESTINATION=$2
+
+TARGET=`basename $SOURCE`
+mkdir -pv $DESTINATION/$TARGET
+
+LAST=`ls $DESTINATION/$TARGET | tail -1`
+CURRENT=`date -Is | head -c 19 | sed "s/:/-/g"`
+
+if [[ $LAST ]]
+then
+    echo "> Linking: $DESTINATION/$TARGET/$LAST -> $DESTINATION/$TARGET/$CURRENT"
+    cp -al $DESTINATION/$TARGET/$LAST $DESTINATION/$TARGET/$CURRENT
+fi
+
+rsync -hav --delete $SOURCE/ $DESTINATION/$TARGET/$CURRENT
