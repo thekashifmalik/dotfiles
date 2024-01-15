@@ -19,8 +19,9 @@ SNAPSHOT_ROOT=$DESTINATION/$TARGET
 RETAINS=""
 while read LINE
 do
-    TAB_CONVERTED=`echo $LINE | unexpand`
-    RETAINS="`echo -e "${RETAINS}\nretain\t${TAB_CONVERTED}"`"
+    INTERVAL_NAME=`echo $LINE | cut -d' ' -f1`
+    INTERVAL_COUNT=`echo $LINE | cut -d' ' -f2`
+    RETAINS="`echo -e "${RETAINS}\nretain\t${INTERVAL_NAME}\t${INTERVAL_COUNT}"`"
 done < rbackup/config
 
 # Render template
