@@ -23,4 +23,6 @@ else
 fi
 
 # For some reason the SSH config permissions are messed up on some hosts.
+chown -v $USER:$USER ssh/config
+chown -vR $USER:$USER ssh/config.d
 chmod -v 600 ssh/config
