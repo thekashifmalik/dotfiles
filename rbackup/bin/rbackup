@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+[[ -z $1 ]] && echo "No sources provided" && exit 1
+[[ -z $2 ]] && echo "No destination provided" && exit 1
+[[ -z $3 ]] && echo "No interval provided" && exit 1
+
+SOURCES="${@:1:$#-2}"
+DESTINATION="${@: -2:1}"
+INTERVAL="${@: -1}"
+
+for SOURCE in $SOURCES
+do
+    echo "> Processing: $SOURCE"
+    eval rbackup/bin/rsnapshot $SOURCE $DESTINATION $INTERVAL
+done
