@@ -12,11 +12,16 @@ mkdir -pv $DESTINATION/$TARGET
 
 LAST=`ls $DESTINATION/$TARGET | tail -1`
 CURRENT=`date -Is | head -c 19 | sed "s/:/-/g"`
+OUT=$DESTINATION/$TARGET/$CURRENT
 
 if [[ $LAST ]]
 then
-    echo "> Linking: $DESTINATION/$TARGET/$LAST -> $DESTINATION/$TARGET/$CURRENT"
-    cp -al $DESTINATION/$TARGET/$LAST $DESTINATION/$TARGET/$CURRENT
+    echo "> Linking: $DESTINATION/$TARGET/$LAST -> $OUT"
+    cp -al $DESTINATION/$TARGET/$LAST $OUT
 fi
 
-rsync -hav --delete $SOURCE/ $DESTINATION/$TARGET/$CURRENT
+rsync -hav --delete $SOURCE/ $OUT || (
+    echo "> Cleaning up: $OUT" &&
+    rm -rf $OUT &&
+    exit 1
+)
