@@ -20,4 +20,5 @@ else
     encryption/bin/encrypt $KEY nas-1 vault/nas-1
     encryption/bin/encrypt $KEY certificates vault/certificates
     encryption/bin/encrypt $KEY server-2 vault/server-2
+    encryption/bin/encrypt $KEY desktop-1 vault/desktop-1
 fi

@@ -20,6 +20,7 @@ else
     encryption/bin/decrypt $KEY vault/nas-1 nas-1
     encryption/bin/decrypt $KEY vault/certificates certificates
     encryption/bin/decrypt $KEY vault/server-2 server-2
+    encryption/bin/decrypt $KEY vault/desktop-1 desktop-1
 fi
 
 # For some reason the SSH config permissions are messed up on some hosts.
