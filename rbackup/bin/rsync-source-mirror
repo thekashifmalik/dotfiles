@@ -17,7 +17,7 @@ then
     LAST=`cat $DESTINATION/$TARGET/.rbackup/last`
     echo "> Linking: $DESTINATION/$TARGET -> $DESTINATION/$TARGET/.rbackup/$LAST"
     mkdir -pv $DESTINATION/$TARGET/.rbackup/$LAST
-    find $DESTINATION/$TARGET -not -path $DESTINATION/$TARGET -not -path '*/.rbackup*' \
+    ls -A $DESTINATION/$TARGET | grep -v '.rbackup' | while read f; do echo "$DESTINATION/$TARGET/$f"; done \
     | xargs -d '\n' cp -al -t $DESTINATION/$TARGET/.rbackup/$LAST
 fi
 
