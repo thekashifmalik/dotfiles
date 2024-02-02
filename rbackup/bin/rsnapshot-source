@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+[[ -z $1 ]] && echo "No source provided" && exit 1
+[[ -z $2 ]] && echo "No destination provided" && exit 1
+[[ -z $3 ]] && echo "No interval provided" && exit 1
+
+SOURCE=$1
+DESTINATION=$2
+INTERVAL=$3
+
+TARGET=`basename $SOURCE`
+CONFIG=/tmp/$TARGET.rsnapshot.conf
+
+# Template variables
+BACKUP=$SOURCE/
+SNAPSHOT_ROOT=$DESTINATION/$TARGET
+# This one is tab-sensitive
+RETAINS=""
+while read LINE
+do
+    INTERVAL_NAME=`echo $LINE | cut -d' ' -f1`
+    INTERVAL_COUNT=`echo $LINE | cut -d' ' -f2`
+    RETAINS="`echo -e "${RETAINS}\nretain\t${INTERVAL_NAME}\t${INTERVAL_COUNT}"`"
+done < rbackup/config
+
+# Render template
+eval "echo \"`cat rbackup/rsnapshot.conf.template`\"" > $CONFIG
+
+rsnapshot -c $CONFIG $INTERVAL

@@ -8,20 +8,24 @@ SOURCE=$1
 DESTINATION=$2
 
 TARGET=`basename $SOURCE`
-mkdir -pv $DESTINATION/$TARGET
+mkdir -pv $DESTINATION/$TARGET/.rbackup
 
-LAST=`ls $DESTINATION/$TARGET | tail -1`
 CURRENT=`date -Is | head -c 19 | sed "s/:/-/g"`
-OUT=$DESTINATION/$TARGET/$CURRENT
 
-if [[ $LAST ]]
+if [[ -e $DESTINATION/$TARGET/.rbackup/last ]]
 then
-    echo "> Linking: $DESTINATION/$TARGET/$LAST -> $OUT"
-    cp -al $DESTINATION/$TARGET/$LAST $OUT
+    LAST=`cat $DESTINATION/$TARGET/.rbackup/last`
+    echo "> Linking: $DESTINATION/$TARGET -> $DESTINATION/$TARGET/.rbackup/$LAST"
+    mkdir -pv $DESTINATION/$TARGET/.rbackup/$LAST
+    ls -A $DESTINATION/$TARGET | grep -v '.rbackup' | while read f; do echo "$DESTINATION/$TARGET/$f"; done \
+    | xargs -d '\n' cp -al -t $DESTINATION/$TARGET/.rbackup/$LAST
 fi
 
-rsync -hav --delete $SOURCE/ $OUT || (
-    echo "> Cleaning up: $OUT" &&
-    rm -rf $OUT &&
+rsync -hav --delete --exclude .rbackup $SOURCE/ $DESTINATION/$TARGET || (
+    [[ $LAST ]] &&
+    echo "> Cleaning up: $DESTINATION/$TARGET/.rbackup/$LAST" &&
+    rm -rf $DESTINATION/$TARGET/.rbackup/$LAST &&
     exit 1
 )
+
+echo "$CURRENT" > $DESTINATION/$TARGET/.rbackup/last
