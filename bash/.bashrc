@@ -75,7 +75,7 @@ export PATH=$PATH:/usr/local/go/bin
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-
+export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
 export PATH="/usr/local/opt/node@6/bin:$PATH"
