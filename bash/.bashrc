@@ -113,4 +113,4 @@ fi
 
 export PATH="$HOME/dotfiles/disqus/bin:$PATH"
 
-[ -e ~/Code/coinbase ] && . ~/dotfiles/coinbase/.bashrc
+[ -e ~/.coinbase ] && . ~/dotfiles/coinbase/.bashrc
