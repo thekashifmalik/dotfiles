@@ -53,7 +53,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
             lsd
     fi
 
-    pip install \
+    pip install --break-system-packages \
         ydiff
 fi
 
