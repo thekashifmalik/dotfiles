@@ -104,9 +104,6 @@ fi
 # export PIPENV_VENV_IN_PROJECT="1"
 # eval "$(pipenv --completion)"
 
-# # pyenv setup.
-# eval "$(pyenv init -)"
-
 # # jEnv stuff.
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
