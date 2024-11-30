@@ -1,4 +1,11 @@
-# If not running interactively, don't do anything.
+# Add the Linux snap bin directory to the PATH
+export PATH=/snap/bin:$PATH
+
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
+
+# If not running interactively, stop here.
 case $- in
     *i*) ;;
       *) return;;
@@ -75,9 +82,6 @@ export PATH=$PATH:/usr/local/go/bin
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-export PATH=$HOME/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=~/.local/bin:$PATH  # Not sure why pip is putting things in here.
 export PATH="/usr/local/opt/node@6/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
