@@ -1,0 +1,1 @@
+ansible-playbook -i ops/inventory.ini ops/playbook.yaml

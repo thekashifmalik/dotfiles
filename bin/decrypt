@@ -14,13 +14,11 @@ else
     encryption/bin/decrypt $KEY vault/ssh/config.d ssh/config.d
     encryption/bin/decrypt $KEY vault/fstab fstab
     encryption/bin/decrypt $KEY vault/coinbase coinbase
-    encryption/bin/decrypt $KEY vault/nginx nginx
-    encryption/bin/decrypt $KEY vault/docker-compose.server-1.yml docker-compose.server-1.yml
     encryption/bin/decrypt $KEY vault/nas-1 nas-1
-    encryption/bin/decrypt $KEY vault/certificates certificates
     encryption/bin/decrypt $KEY vault/server-2 server-2
     encryption/bin/decrypt $KEY vault/server-3 server-3
     encryption/bin/decrypt $KEY vault/desktop-1 desktop-1
+    encryption/bin/decrypt $KEY vault/ops ops
 fi
 
 # For some reason the SSH config permissions are messed up on some hosts.
