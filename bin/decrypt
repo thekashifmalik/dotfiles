@@ -16,7 +16,6 @@ else
     encryption/bin/decrypt $KEY vault/coinbase coinbase
     encryption/bin/decrypt $KEY vault/nas-1 nas-1
     encryption/bin/decrypt $KEY vault/server-2 server-2
-    encryption/bin/decrypt $KEY vault/server-3 server-3
     encryption/bin/decrypt $KEY vault/desktop-1 desktop-1
     encryption/bin/decrypt $KEY vault/ops ops
 fi
