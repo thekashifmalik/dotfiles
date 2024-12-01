@@ -9,11 +9,5 @@ var/
 /fstab
 /tmp
 /devices
-/nginx
-/nas-1
-/certificates
 cloudflare-credentials.ini
-/server-2
-/server-3
-/desktop-1
 /ops

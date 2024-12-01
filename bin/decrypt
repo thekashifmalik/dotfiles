@@ -14,8 +14,6 @@ else
     encryption/bin/decrypt $KEY vault/ssh/config.d ssh/config.d
     encryption/bin/decrypt $KEY vault/fstab fstab
     encryption/bin/decrypt $KEY vault/coinbase coinbase
-    encryption/bin/decrypt $KEY vault/nas-1 nas-1
-    encryption/bin/decrypt $KEY vault/desktop-1 desktop-1
     encryption/bin/decrypt $KEY vault/ops ops
 fi
 
