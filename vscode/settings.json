@@ -38,7 +38,7 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "workbench.editor.wrapTabs": true,
-    "git.inputValidation": "off",
+    "git.inputValidation": false,
     "search.useIgnoreFiles": false,
     "workbench.colorTheme": "Monokai"
 }
